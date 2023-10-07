@@ -16,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build-css": "tailwindcss build src/assets/styles.css -o public/styles.css",
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
