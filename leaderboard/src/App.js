@@ -1,27 +1,16 @@
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-// import './styles.css';
+import React from 'react';
+import 'tailwindcss/tailwind.css';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p className="text-yellow-400">
-//           EDIT <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
+export default function App() {
+  return (
+    <div className="bg-black">
+      <div className='bg-red-500'>
+        <h5 className='text-3xl text-yellow-100 font-bold underline'>Hey</h5>
+      </div>
+      <p className='text-red-200'>hello</p>
+      <h1 className="text-3xl text-cyan-500 font-bold underline">
+        bye
+      </h1>
+    </div>
+  )
+}
