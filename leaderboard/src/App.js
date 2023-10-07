@@ -13,6 +13,6 @@ export default function App() {
           bye
         </h1>
       </div>
-    </div>
+    </div >
   )
 }
