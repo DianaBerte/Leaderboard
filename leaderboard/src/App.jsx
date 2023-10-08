@@ -9,8 +9,8 @@ export default function App() {
         <div>
           <nav>
             <div>
-              <h1>
-                <a className='text-3xl font-extrabold'href="/">Leaderboard</a>
+              <h1 className='text-2xl font-extrabold uppercase p-4 border-b border-cyan-600'>
+                <a href="/">Leaderboard</a>
               </h1>
             </div>
             <ul>
@@ -33,7 +33,7 @@ export default function App() {
           </nav>
         </div>{/* end navbar */}
 
-        <div>{/* main content wrapper */}
+        <div className='px-16 py-6'>{/* main content wrapper */}
           <div>
             <button>Log in</button>
             <button>Sign up</button>
@@ -45,15 +45,15 @@ export default function App() {
           </div>
 
           <div>{/* cards wrapper */}
-            <h4 className='text-4xl font-extrabold'>Winners</h4>
+            <h4 className='text-4xl font-extrabold mt-12 pb-2'>Winners</h4>
 
-            <div>
+            <div className='mt-8 border-b border-cyan-400'>
               {/* cards go here */}
 
               <div>{/* CARD */}
                 <img src='https://res.cloudinary.com/degg5zebq/image/upload/v1696758941/Game%20characters/Game_character_4_tmvlol.png' alt='character img'></img>
                 <div>
-                  <div className='text-2xl font-extrabold animate-bounce' >Alex</div>
+                  <div className='text-2xl font-extrabold animate-bounce'>Alex</div>
                   <div className='text-2xl font-extrabold animate-bounce'>1</div>
                   <img src='' alt='stars img'></img>
                   <div className='font-bold animate-pulse'>860pt</div>
@@ -65,7 +65,7 @@ export default function App() {
             </div>
 
             <div>
-              <button className='font-bold animate-bounce'>Add Player</button>
+              <button className='font-bold animate-bounce mt-12 pb-2'>Add Player</button>
             </div>
 
             <div>{/* CARD */}
