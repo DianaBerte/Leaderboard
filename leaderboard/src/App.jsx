@@ -67,6 +67,18 @@ export default function App() {
             <div>
               <button className='font-bold animate-bounce'>Add Player</button>
             </div>
+
+            <div>{/* CARD */}
+                <div>
+                  <span className='text-2xl font-extrabold'>Jackx</span>
+                  <span className='text-2xl font-extrabold'>4</span>
+                  <span><img src='' alt='stars img'></img></span>
+                  <span className='font-bold animate-pulse'>420pt</span>
+                  <button>-</button><span>score</span><button>+</button>
+                  <span>Divario: ...</span>
+                </div>
+              </div>
+
           </div>{/* cards wrapper */}
 
         </div>{/* main content wrapper */}
