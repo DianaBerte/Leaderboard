@@ -5,8 +5,8 @@ export default function App() {
   return (
     <div className="h-screen bg-cyan-900 text-primary">{/* body */}
 
-      <div>{/* content wrapper */}
-        <div>
+      <div className='grid md:grid-cols-4'>{/* content wrapper */}
+        <div className='md:col-span-1'>
           <nav>
             <div>
               <h1 className='text-2xl font-extrabold uppercase p-4 border-b border-cyan-700'>
@@ -33,7 +33,7 @@ export default function App() {
           </nav>
         </div>{/* end navbar */}
 
-        <div className='px-16 py-6'>{/* main content wrapper */}
+        <div className='px-16 py-6 md:col-span-2'>{/* main content wrapper */}
           <div className='flex justify-center md:justify-end'>
             <button>Log in</button>
             <button className='ml-2'>Sign up</button>
@@ -45,13 +45,13 @@ export default function App() {
           </div>
 
           <div>{/* cards wrapper */}
-            <h4 className='text-4xl font-extrabold mt-12 pb-2'>Winners</h4>
+            <h4 className='flex items-center justify-center text-4xl font-extrabold mt-8'>Winners</h4>
 
-            <div className='mt-8 border-b border-cyan-400'>
+            <div className='mt-8 pb-10 border-cyan-400 grid lg:grid-cols-3 gap-20 border-b'>
 
               {/* cards go here */}
-              <div className="bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative">{/* CARD */}
-                <img className='w-full h-32 sm:h-48 object-cover' src='https://res.cloudinary.com/degg5zebq/image/upload/v1696758941/Game%20characters/Game_character_4_tmvlol.png' alt='character img'></img>
+              <div className="bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative w-72">{/* CARD 1*/}
+                <img className='w-full h-32 sm:h-48 object-cover rounded' src='https://res.cloudinary.com/degg5zebq/image/upload/v1696758941/Game%20characters/Game_character_4_tmvlol.png' alt='character img'></img>
                 <div className='m-4 text-secondary'>
                 <div className="flex items-center">
                   <div className='text-2xl font-extrabold animate-bounce'>Alex</div>
@@ -64,7 +64,43 @@ export default function App() {
                   <div>Divario: ...</div>
                 </div>
                 <div className='bg-white text-secondary text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
+                  <div className='flex items-center justify-center'>2</div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative w-72">{/* CARD 2*/}
+                <img className='w-full h-32 sm:h-48 object-cover' src='https://res.cloudinary.com/degg5zebq/image/upload/v1696758942/Game%20characters/Game_character_2_bucm4k.png' alt='character img'></img>
+                <div className='m-4 text-secondary'>
+                <div className="flex items-center">
+                  <div className='text-2xl font-extrabold animate-bounce'>Gigi</div>
+                  <div className='bg-cyan-900 text-white font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>{/* badge pt */}
+                    <div className='flex items-center justify-center'>750pt</div>
+                  </div>
+                </div>
+                  <img src='' alt='stars img'></img>
+                  <button>-</button><span>score</span><button>+</button>
+                  <div>Divario: ...</div>
+                </div>
+                <div className='bg-white text-secondary text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
                   <div className='flex items-center justify-center'>1</div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative w-72">{/* CARD 3*/}
+                <img className='w-full h-32 sm:h-48 object-cover' src='https://res.cloudinary.com/degg5zebq/image/upload/v1696758942/Game%20characters/Game_character_1_snyslq.png' alt='character img'></img>
+                <div className='m-4 text-secondary'>
+                <div className="flex items-center">
+                  <div className='text-2xl font-extrabold animate-bounce'>Jacky</div>
+                  <div className='bg-cyan-900 text-white font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>{/* badge pt */}
+                    <div className='flex items-center justify-center'>560pt</div>
+                  </div>
+                </div>
+                  <img src='' alt='stars img'></img>
+                  <button>-</button><span>score</span><button>+</button>
+                  <div>Divario: ...</div>
+                </div>
+                <div className='bg-white text-secondary text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
+                  <div className='flex items-center justify-center'>3</div>
                 </div>
               </div>
 
