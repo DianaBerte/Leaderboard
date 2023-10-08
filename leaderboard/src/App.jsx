@@ -9,7 +9,7 @@ export default function App() {
         <div>
           <nav>
             <div>
-              <h1 className='text-2xl font-extrabold uppercase p-4 border-b border-cyan-600'>
+              <h1 className='text-2xl font-extrabold uppercase p-4 border-b border-cyan-700'>
                 <a href="/">Leaderboard</a>
               </h1>
             </div>
