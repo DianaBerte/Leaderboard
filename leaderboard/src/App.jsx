@@ -51,12 +51,12 @@ export default function App() {
               {/* cards go here */}
 
               <div>{/* CARD */}
-                <img src='' alt='character img'></img>
+                <img src='https://res.cloudinary.com/degg5zebq/image/upload/v1696758941/Game%20characters/Game_character_4_tmvlol.png' alt='character img'></img>
                 <div>
-                  <div className='text-2xl font-extrabold' >Alex</div>
-                  <div className='text-2xl font-extrabold'>1</div>
-                  <img src='https://res.cloudinary.com/degg5zebq/image/upload/v1696758941/Game%20characters/Game_character_4_tmvlol.png' alt='stars img'></img>
-                  <div className='font-bold'>860pt</div>
+                  <div className='text-2xl font-extrabold animate-bounce' >Alex</div>
+                  <div className='text-2xl font-extrabold animate-bounce'>1</div>
+                  <img src='' alt='stars img'></img>
+                  <div className='font-bold animate-pulse'>860pt</div>
                   <button>-</button><span>score</span><button>+</button>
                   <div>Divario: ...</div>
                 </div>
@@ -65,7 +65,7 @@ export default function App() {
             </div>
 
             <div>
-              <button className='font-bold'>Add Player</button>
+              <button className='font-bold animate-bounce'>Add Player</button>
             </div>
           </div>{/* cards wrapper */}
 
