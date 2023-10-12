@@ -35,8 +35,8 @@ export default function App() {
 
         <div className='px-16 py-6 md:col-span-2'>{/* main content wrapper */}
           <div className='flex justify-center md:justify-end'>
-            <button>Log in</button>
-            <button className='ml-2'>Sign up</button>
+            <button className='rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider border-primary md:border-2'>Log in</button>
+            <button className='rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider border-primary md:border-2 ml-2'>Sign up</button>
           </div>
 
           <div>{/* header */}
@@ -55,7 +55,7 @@ export default function App() {
                 <div className='m-4 text-secondary'>
                 <div className="flex items-center">
                   <div className='text-2xl font-extrabold animate-bounce'>Alex</div>
-                  <div className='bg-cyan-900 text-white font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>{/* badge pt */}
+                  <div className='bg-fourth text-white font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>{/* badge pt */}
                     <div className='flex items-center justify-center'>860pt</div>
                   </div>
                 </div>
@@ -63,7 +63,7 @@ export default function App() {
                   <button>-</button><span>score</span><button>+</button>
                   <div>Divario: ...</div>
                 </div>
-                <div className='bg-white text-secondary text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
+                <div className='bg-third text-white text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
                   <div className='flex items-center justify-center'>1</div>
                 </div>
               </div>
@@ -73,7 +73,7 @@ export default function App() {
                 <div className='m-4 text-secondary'>
                 <div className="flex items-center">
                   <div className='text-2xl font-extrabold animate-bounce'>Gigi</div>
-                  <div className='bg-cyan-900 text-white font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>{/* badge pt */}
+                  <div className='bg-fourth text-white font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>{/* badge pt */}
                     <div className='flex items-center justify-center'>750pt</div>
                   </div>
                 </div>
@@ -81,7 +81,7 @@ export default function App() {
                   <button>-</button><span>score</span><button>+</button>
                   <div>Divario: ...</div>
                 </div>
-                <div className='bg-white text-secondary text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
+                <div className='bg-third text-white text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
                   <div className='flex items-center justify-center'>2</div>
                 </div>
               </div>
@@ -91,7 +91,7 @@ export default function App() {
                 <div className='m-4 text-secondary'>
                 <div className="flex items-center">
                   <div className='text-2xl font-extrabold animate-bounce'>Jacky</div>
-                  <div className='bg-cyan-900 text-white font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>{/* badge pt */}
+                  <div className='bg-fourth text-white font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>{/* badge pt */}
                     <div className='flex items-center justify-center'>560pt</div>
                   </div>
                 </div>
@@ -99,7 +99,7 @@ export default function App() {
                   <button>-</button><span>score</span><button>+</button>
                   <div>Divario: ...</div>
                 </div>
-                <div className='bg-white text-secondary text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
+                <div className='bg-third text-white text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
                   <div className='flex items-center justify-center'>3</div>
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function App() {
             </div>
 
             <div className='flex'>
-              <button className='font-bold animate-bounce mt-12 pb-2'>Add Player</button>
+              <button className='rounded-full py-2 px-3 uppercase text-xs cursor-pointer tracking-wider font-bold border-primary md:border-2 animate-bounce mt-12 pb-2'>Add Player</button>
             </div>
 
             <div>{/* CARD */}
