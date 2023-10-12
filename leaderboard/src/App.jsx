@@ -59,9 +59,21 @@ export default function App() {
                     <div className='flex items-center justify-center'>860pt</div>
                   </div>
                 </div>
-                  <img src='' alt='stars img'></img>
-                  <button>-</button><span>score</span><button>+</button>
-                  <div>Divario: ...</div>
+                <div className='flex'>
+                  <svg className='w-6 h-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24">
+                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                  </svg>
+                  <svg className='w-6 h-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24">
+                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                  </svg>
+                  <svg className='w-6 h-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24">
+                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                  <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
+                    <span className='text-sm font-medium uppercase'>score</span>
+                  <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
+                  <div className='text-sm font-medium uppercase'>Divario: ...</div>
                 </div>
                 <div className='bg-third text-white text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
                   <div className='flex items-center justify-center'>1</div>
@@ -77,9 +89,18 @@ export default function App() {
                     <div className='flex items-center justify-center'>750pt</div>
                   </div>
                 </div>
-                  <img src='' alt='stars img'></img>
-                  <button>-</button><span>score</span><button>+</button>
-                  <div>Divario: ...</div>
+                <div className='flex'>
+                  <svg className='w-6 h-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24">
+                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                  </svg>
+                  <svg className='w-6 h-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24">
+                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                  <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
+                    <span className='text-sm font-medium uppercase'>score</span>
+                  <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
+                  <div className='text-sm font-medium uppercase'>Divario: ...</div>
                 </div>
                 <div className='bg-third text-white text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
                   <div className='flex items-center justify-center'>2</div>
@@ -95,9 +116,15 @@ export default function App() {
                     <div className='flex items-center justify-center'>560pt</div>
                   </div>
                 </div>
-                  <img src='' alt='stars img'></img>
-                  <button>-</button><span>score</span><button>+</button>
-                  <div>Divario: ...</div>
+                <div className='flex'>
+                  <svg className='w-6 h-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24">
+                    <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                  <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
+                    <span className='text-sm font-medium uppercase'>score</span>
+                  <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
+                  <div className='text-sm font-medium uppercase'>Divario: ...</div>
                 </div>
                 <div className='bg-third text-white text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
                   <div className='flex items-center justify-center'>3</div>
@@ -107,17 +134,18 @@ export default function App() {
             </div>
 
             <div className='flex'>
-              <button className='rounded-full py-2 px-3 uppercase text-xs cursor-pointer tracking-wider font-bold border-primary md:border-2 animate-bounce mt-12 pb-2'>Add Player</button>
+              <button className='bg-third text-white rounded-full py-3 px-6 pb-3 mt-10 mb-6 uppercase text-xs cursor-pointer tracking-wider font-bold border-primary md:border-2 animate-bounce'>Add Player</button>
             </div>
 
             <div>{/* CARD */}
-                <div>
-                  <span className='text-2xl font-extrabold'>Jackx</span>
-                  <span className='text-2xl font-extrabold'>4</span>
-                  <span><img src='' alt='stars img'></img></span>
-                  <span className='font-bold animate-pulse'>420pt</span>
-                  <button>-</button><span>score</span><button>+</button>
-                  <span>Divario: ...</span>
+                <div className='mb-6 py-4 px-4 text-white bg-secondary rounded overflow-hidden shadow-lg shadow-cyan-500'>
+                  <span className='text-2xl font-extrabold text-fourth rounded-full animate-pulse'>4</span>
+                  <span className='text-2xl font-extrabold ml-4'>Smoothie</span>
+                  <span className='text-xl font-bold animate-pulse text-fourth ml-4 mr-4'>420pt</span>
+                  <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
+                    <span className='text-md font-medium uppercase'>score</span>
+                  <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
+                  <span className='text-md font-medium uppercase ml-4'> Divario: ...</span>
                 </div>
               </div>
 
