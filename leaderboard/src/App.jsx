@@ -3,7 +3,7 @@ import 'tailwindcss/tailwind.css';
 
 export default function App() {
   return (
-    <div className="h-screen bg-cyan-900 text-primary">{/* body */}
+    <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
 
       <div className='grid md:grid-cols-4'>{/* content wrapper */}
         <div className='md:col-span-1'>
