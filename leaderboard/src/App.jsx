@@ -8,12 +8,15 @@ export default function App() {
       <div className='grid md:grid-cols-4'>{/* content wrapper */}
       <div className='md:col-span-1 md:flex md:justify-end'>
           <nav className='text-right'>
-            <div>
+            <div className='flex justify-between items-center'>
               <h1 className='text-2xl font-extrabold uppercase p-4 border-b border-cyan-700'>
                 <a className='hover:text-white' href="/">Leaderboard</a>
               </h1>
+              <div className='px-4 cursor-pointer md:hidden' id='burger'> {/* from md up: hidden */}
+                <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+              </div>
             </div>
-            <ul className='mt-6'>
+            <ul className='mt-6 hidden md:block' id='menu'>{/* from md up: visible */}
               <li className='py-1 flex justify-end'> {/* flex justify-end: content to the right */}
                 <button className='hover:text-lg hover:text-white px-4 flex justify-end'>
                   <span>Home</span>
