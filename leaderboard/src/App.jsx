@@ -1,6 +1,6 @@
 import React from 'react';
 import 'tailwindcss/tailwind.css';
-import MenuAndBurger from './components/Hey.jsx';
+import MenuAndBurger from './components/MenuAndBurger.jsx';
 
 export default function App() {
   return (
