@@ -1,6 +1,8 @@
 import React from 'react';
 import 'tailwindcss/tailwind.css';
 import MenuAndBurger from './components/MenuAndBurger.jsx';
+import PlayerAdded from './components/PlayerAdded.jsx';
+import addPlayerBtn from './components/AddPlayerBtn.jsx';
 
 export default function App() {
   return (
@@ -143,10 +145,6 @@ export default function App() {
 
             </div>
 
-            <div className='flex'>
-              <button className='bg-third text-white rounded-full py-3 px-6 pb-3 mt-10 mb-6 uppercase text-xs cursor-pointer tracking-wider font-bold border-primary md:border-2 animate-bounce hover:text-third hover:text-sm hover:bg-fourth hover:shadow-xl'>Add Player</button>
-            </div>
-
             <div>{/* CARD */}
                 <div className='mb-6 py-4 px-4 text-white bg-secondary rounded overflow-hidden shadow-lg shadow-cyan-500'>
                   <span className='text-2xl font-extrabold text-fourth rounded-full animate-pulse'>4</span>
@@ -158,6 +156,8 @@ export default function App() {
                   <span className='text-md font-medium uppercase ml-4'> Divario: ...</span>
                 </div>
               </div>
+
+              <PlayerAdded />
 
           </div>{/* cards wrapper */}
 
