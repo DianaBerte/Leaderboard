@@ -2,7 +2,7 @@ import React from 'react';
 import 'tailwindcss/tailwind.css';
 import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
-import addPlayerBtn from './components/AddPlayerBtn.jsx';
+import AddPlayerBtn from './components/AddPlayerBtn.jsx';
 
 export default function App() {
   return (
@@ -40,6 +40,8 @@ export default function App() {
                 </button>
               </li>
             </ul>
+                                      
+            <AddPlayerBtn />
           </nav>
         </div>
 
