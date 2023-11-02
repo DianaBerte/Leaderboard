@@ -1,6 +1,6 @@
 const initialState = {
     player: {
-        content: [],
+        isVisible: false,
     }
 }
 

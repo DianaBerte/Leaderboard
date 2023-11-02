@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const PlayerAdded = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const playerIsVisible = useSelector((state) => state.player.isVisible)
 
-    const addPlayerBtn = () => {
-        setIsVisible(true);
-    };
+    // const addPlayerBtn = () => {
+    //     setIsVisible(true);
+    // };
 
     return(
         <>
