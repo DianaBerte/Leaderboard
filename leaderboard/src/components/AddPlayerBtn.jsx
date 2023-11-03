@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
 
-//https://epicodeschool.webex.com/recordingservice/sites/epicodeschool/recording/44431ca88a7e103bbfdf005056818724/playback
-// 03:18
+// D9 - Redux Intro (remove from cart)
+// D11 - Multiple reducers & Async operations
+// chatgpt: generar nuevo jugador
 
 const AddPlayerBtn = (player) => {
 
