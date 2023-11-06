@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 
 // D9 - Redux Intro (remove from cart)
-// D11 - Multiple reducers & Async operations
+// D11 - Multiple reducers & Async operations 1:00:00
 // chatgpt: generar nuevo jugador
 
 const AddPlayerBtn = (player) => {
