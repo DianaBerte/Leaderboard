@@ -4,7 +4,7 @@ import playerReducer from '../reducers/playerReducer';
 const store = configureStore({
     reducer: combineReducers({
         player: playerReducer,
-        //and any other reducers here <--
+        //and any other reducers here <-- 
     }),
 })
 
