@@ -2,10 +2,12 @@ import { useDispatch } from "react-redux";
 import { ADD_NEW_PLAYER } from "../redux/actions";
 
 // D9 - Redux Intro (remove from cart)
-// D11 - Multiple reducers & Async operations 1:06:00
+// D11 - Multiple reducers & Async operations 2:06:00
 // chatgpt: generar nuevo jugador
 
 const AddPlayerBtn = (player) => {
+    //the state my components are receiving is the whole state, not only one part of it.
+    //So, I can travel through it by state.player.content, etc.
 
     const dispatch = useDispatch()
 
