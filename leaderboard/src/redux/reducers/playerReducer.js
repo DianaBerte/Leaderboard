@@ -1,0 +1,26 @@
+import { REMOVE_PLAYER, ADD_NEW_PLAYER } from "../actions"
+
+const initialState = {
+    content: [],
+}
+
+const playerReducer = (state = initialState, action) => {
+
+    switch (action.type) {
+        case ADD_NEW_PLAYER:
+            return {
+                ...state,
+                content: [...state.content, action.payload]
+            }
+
+        case REMOVE_PLAYER:
+            return {
+                ...state,
+                content: [state.content.filter((el, i) => i !== action.payload)]
+            }
+        default:
+            return state
+    }
+}
+
+export default playerReducer
