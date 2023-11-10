@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addPLayerAsync } from "../redux/actions";
 
@@ -7,13 +6,7 @@ const PlayerAdded = () => {
     const dispatch = useDispatch();
     const players = useSelector(state => state.player.content);
 
-    // const addNewPlayer = () => { ======> adds a new player to the local state, but I want to use Redux to manage the state globally.
-    //     const newPlayer = {
-    //         name: 'New Player',
-    //         score: 0,
-    //     };
-    //     setPlayers([...players, newPlayer]);
-    // };
+//!! LOOK: Actions vs. Reducers
 
     const handleAddNewPlayer = () => {
         const newPlayer = {
