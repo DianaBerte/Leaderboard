@@ -4,7 +4,6 @@ import { ADD_NEW_PLAYER } from "../redux/actions";
 // D9 - Redux Intro (remove from cart)
 // D11 - Multiple reducers & Async operations 3:06:00 (finished watching)
 //code: https://github.com/irvelervel/FS0522-epizon-d2
-// chatgpt: generar nuevo jugador
 
 const AddPlayerBtn = (player) => {
     //the state my components are receiving is the whole state, not only one part of it.
