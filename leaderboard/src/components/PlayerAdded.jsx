@@ -1,21 +1,8 @@
-import { useSelector, useDispatch } from "react-redux";
-import { addPLayerAsync } from "../redux/actions";
-import AddPlayerBtn from "./AddPlayerBtn";
+import { useSelector } from "react-redux";
 
 const PlayerAdded = () => {
     //travel through state: state.player.content etc.
-    const dispatch = useDispatch();
     const players = useSelector(state => state.player.content);
-
-//!! LOOK: Actions vs. Reducers
-
-    // const handleAddNewPlayer = () => {
-    //     const newPlayer = {
-    //         name: 'New Player',
-    //         score: 0,
-    //     };
-    //     dispatch(addPLayerAsync(newPlayer))
-    // }
 
     return(
         <>
@@ -32,7 +19,6 @@ const PlayerAdded = () => {
                     </div>
                 </div>
         ))}
-        <AddPlayerBtn />
         </>
     )
 };
