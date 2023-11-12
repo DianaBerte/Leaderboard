@@ -3,8 +3,12 @@ import 'tailwindcss/tailwind.css';
 import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
+import { useSelector } from 'react-redux';
 
 export default function App() {
+
+  const player = useSelector(state => state.player.content)
+
   return (
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
 
@@ -66,9 +70,9 @@ export default function App() {
                 <img className='w-full h-32 sm:h-48 object-cover rounded' src='https://res.cloudinary.com/degg5zebq/image/upload/v1696758941/Game%20characters/Game_character_4_tmvlol.png' alt='character img'></img>
                 <div className='m-4 text-secondary'>
                 <div className="flex items-center">
-                  <div className='text-2xl font-extrabold animate-bounce'>Alex</div>
+                  <div className='text-2xl font-extrabold animate-bounce'>{player.name}</div>
                   <div className='bg-fourth text-secondary font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>{/* badge pt */}
-                    <div className='flex items-center justify-center'>860pt</div>
+                    <div className='flex items-center justify-center'>{player.score}pt</div>
                   </div>
                 </div>
                 <div className='flex'>{/* stars */}
@@ -86,7 +90,7 @@ export default function App() {
                   <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
                     <span className='text-sm font-medium uppercase '>score</span>
                   <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
-                  <div className='text-sm font-medium uppercase'>Divario: ...</div>
+                  <div className='text-sm font-medium uppercase'>Gap: ...</div>
                 </div>
                 <div className='bg-third text-white text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
                   <div className='flex items-center justify-center'>1</div>
@@ -97,9 +101,9 @@ export default function App() {
                 <img className='w-full h-32 sm:h-48 object-cover' src='https://res.cloudinary.com/degg5zebq/image/upload/v1696758942/Game%20characters/Game_character_2_bucm4k.png' alt='character img'></img>
                 <div className='m-4 text-secondary'>
                 <div className="flex items-center">
-                  <div className='text-2xl font-extrabold animate-bounce'>Gigi</div>
+                  <div className='text-2xl font-extrabold animate-bounce'>{player.name}</div>
                   <div className='bg-fourth text-secondary font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>{/* badge pt */}
-                    <div className='flex items-center justify-center'>750pt</div>
+                    <div className='flex items-center justify-center'>{player.score}pt</div>
                   </div>
                 </div>
                 <div className='flex'>{/* stars */}
@@ -113,7 +117,7 @@ export default function App() {
                   <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
                     <span className='text-sm font-medium uppercase'>score</span>
                   <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
-                  <div className='text-sm font-medium uppercase'>Divario: ...</div>
+                  <div className='text-sm font-medium uppercase'>Gap: ...</div>
                 </div>
                 <div className='bg-third text-white text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
                   <div className='flex items-center justify-center'>2</div>
@@ -124,9 +128,9 @@ export default function App() {
                 <img className='w-full h-32 sm:h-48 object-cover' src='https://res.cloudinary.com/degg5zebq/image/upload/v1696758942/Game%20characters/Game_character_1_snyslq.png' alt='character img'></img>
                 <div className='m-4 text-secondary'>
                 <div className="flex items-center">
-                  <div className='text-2xl font-extrabold animate-bounce'>Jacky</div>
+                  <div className='text-2xl font-extrabold animate-bounce'>{player.name}</div>
                   <div className='bg-fourth text-secondary font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>{/* badge pt */}
-                    <div className='flex items-center justify-center'>560pt</div>
+                    <div className='flex items-center justify-center'>{player.score}pt</div>
                   </div>
                 </div>
                 <div className='flex'>{/* stars */}
@@ -137,7 +141,7 @@ export default function App() {
                   <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
                     <span className='text-sm font-medium uppercase'>score</span>
                   <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
-                  <div className='text-sm font-medium uppercase'>Divario: ...</div>
+                  <div className='text-sm font-medium uppercase'>Gap: ...</div>
                 </div>
                 <div className='bg-third text-white text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>{/* badge position */}
                   <div className='flex items-center justify-center'>3</div>
@@ -149,12 +153,12 @@ export default function App() {
             <div>{/* CARD */}
                 <div className='mb-6 py-4 px-4 text-white bg-secondary rounded overflow-hidden shadow-lg shadow-cyan-500'>
                   <span className='text-2xl font-extrabold text-fourth rounded-full animate-pulse'>4</span>
-                  <span className='text-2xl font-extrabold ml-4'>Smoothie</span>
-                  <span className='text-xl font-bold animate-pulse text-fourth ml-4 mr-4'>420pt</span>
+                  <span className='text-2xl font-extrabold ml-4'>{player.name}</span>
+                  <span className='text-xl font-bold animate-pulse text-fourth ml-4 mr-4'>{player.score}pt</span>
                   <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
                     <span className='text-md font-medium uppercase'>score</span>
                   <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
-                  <span className='text-md font-medium uppercase ml-4'> Divario: ...</span>
+                  <span className='text-md font-medium uppercase ml-4'>Gap: ...</span>
                 </div>
               </div>
 
