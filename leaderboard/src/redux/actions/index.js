@@ -1,5 +1,6 @@
 export const ADD_NEW_PLAYER = 'ADD_NEW_PLAYER'
 export const REMOVE_PLAYER = 'REMOVE_PLAYER'
+//must add actions for playerS
 
 export const addPLayerAsync = (player) => {
     return async (dispatch, getState) => {

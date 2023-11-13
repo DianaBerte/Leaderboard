@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 const PlayerAdded = () => {
     //travel through state: state.player.content etc.
-    const players = useSelector(state => state.player.content);
+    const players = useSelector(state => state.singlePlayer.content);
 
     return(
         <>

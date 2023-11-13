@@ -6,7 +6,7 @@ import { useState } from "react";
 // D11 - Multiple reducers & Async operations 3:06:00 (finished watching)
 //code: https://github.com/irvelervel/FS0522-epizon-d2
 
-const AddPlayerBtn = (player) => {
+const AddPlayerBtn = () => {
     //the state my components are receiving is the whole state, not only one part of it.
     //So, I can travel through it by state.player.content, etc.
 

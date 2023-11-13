@@ -7,7 +7,7 @@ const initialState = {
     content: [],
 }
 
-const playerReducer = (state = initialState, action) => {
+const singlePlayerReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_NEW_PLAYER:
@@ -26,4 +26,4 @@ const playerReducer = (state = initialState, action) => {
     }
 }
 
-export default playerReducer
+export default singlePlayerReducer

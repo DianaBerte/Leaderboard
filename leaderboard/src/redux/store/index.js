@@ -1,10 +1,11 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import playerReducer from '../reducers/playerReducer';
+import singlePlayerReducer from '../reducers/singlePlayerReducer';
+import playersReducer from '../reducers/playersReducer';
 
 const store = configureStore({
     reducer: combineReducers({
-        player: playerReducer,
-        //and any other reducers here <-- 
+        singlePlayer: singlePlayerReducer,
+        multiplePlayers: playersReducer,
     }),
 })
 
