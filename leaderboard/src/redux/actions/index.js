@@ -1,6 +1,6 @@
 export const ADD_NEW_PLAYER = 'ADD_NEW_PLAYER'
 export const REMOVE_PLAYER = 'REMOVE_PLAYER'
-//must add actions for playerS
+export const RENDER_PLAYERS_ARRAY = 'RENDER_PLAYERS_ARRAY'
 
 export const addPLayerAsync = (player) => {
     return async (dispatch, getState) => {
@@ -16,4 +16,13 @@ export const removePlayer = (i) => {
         type: REMOVE_PLAYER,
         payload: i,
     }
+}
+
+export const renderPlayersArray = (players) => {
+    return async (dispatch, getState) => {
+        dispatch({
+            type: RENDER_PLAYERS_ARRAY,
+            payload: players,
+        });
+    };
 }
