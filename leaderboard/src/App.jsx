@@ -7,10 +7,9 @@ import { useSelector } from 'react-redux';
 
 export default function App() {
 
-  // const player = useSelector(state => state.singlePlayer.content);
-  const players = useSelector(state => state.players.content);
+  const playersState = useSelector(state => state.players);
 
-  const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
+  const sortedPlayers = playersState && playersState.content ? [...playersState.content].sort((a, b) => b.score - a.score) : [];
 
   return (
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}

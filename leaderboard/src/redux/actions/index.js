@@ -19,10 +19,8 @@ export const removePlayer = (i) => {
 }
 
 export const renderPlayersArray = (players) => {
-    return async (dispatch, getState) => {
-        dispatch({
-            type: RENDER_PLAYERS_ARRAY,
-            payload: players,
-        });
+    return {
+        type: RENDER_PLAYERS_ARRAY,
+        payload: players
     };
 }
