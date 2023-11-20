@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'tailwindcss/tailwind.css';
 import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RENDER_PLAYERS_ARRAY } from './redux/actions/index.js';
+import playersArrayReducer, {initialState} from './redux/reducers/playersArrayReducer.js';
 
 export default function App() {
 
+  const dispatch = useDispatch();
+
   const playersState = useSelector(state => state.players);
 
-  const sortedPlayers = playersState && playersState.content ? [...playersState.content].sort((a, b) => b.score - a.score) : [];
+  const sortedPlayers = playersState && playersState.content
+  ? [...playersState.content].sort((a, b) => b.score - a.score)
+  : [];
+
+  useEffect(() => {
+    initialState.players.content.forEach((player) => 
+    dispatch({type: RENDER_PLAYERS_ARRAY, payload: player})
+    );
+  }, [dispatch]);
+
+  console.log("hello initialState.players.content:", initialState.players.content)
 
   return (
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
@@ -157,7 +171,7 @@ export default function App() {
             <div>{/* FOURTH CARD */}
                 <div className='mb-6 py-4 px-4 text-white bg-secondary rounded overflow-hidden shadow-lg shadow-cyan-500'>
                   <span className='text-2xl font-extrabold text-fourth rounded-full animate-pulse'>4</span>
-                  <span className='text-2xl font-extrabold ml-4'>KKKKKKKK</span>
+                  <span className='text-2xl font-extrabold ml-4'>Random name</span>
                   <span className='text-xl font-bold animate-pulse text-fourth ml-4 mr-4'>20pt</span>
                   <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
                     <span className='text-md font-medium uppercase'>score</span>

@@ -18,9 +18,9 @@ export const removePlayer = (i) => {
     }
 }
 
-export const renderPlayersArray = (players) => {
+export const renderPlayersArray = (player) => {
     return {
         type: RENDER_PLAYERS_ARRAY,
-        payload: players
+        payload: player
     };
 }

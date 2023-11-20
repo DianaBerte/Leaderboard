@@ -2,7 +2,7 @@ import { RENDER_PLAYERS_ARRAY } from '../actions/index';
 
 //see: Array of Players
 
-const initialState = {
+export const initialState = {
     players: {
         content: [
             { id: 1, name: 'Gigi', score: 200 },
