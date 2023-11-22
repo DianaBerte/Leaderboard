@@ -13,7 +13,7 @@ export default function App() {
   ? [...playersState.players.content].sort((a, b) => b.score - a.score)
   : [];
 
-  const fourthCardIndex = sortedPlayers.length + 1;
+  // const fourthCardIndex = sortedPlayers.length + 1;
 
   return (
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
