@@ -9,9 +9,11 @@ export default function App() {
 
   const playersState = useSelector(state => state.players);
 
-  const sortedPlayers = playersState && playersState.players.content
-  ? [...playersState.players.content].sort((a, b) => b.score - a.score)
+  const initialPlayers = playersState && playersState.players.content
+  ? [...playersState.players.content]
   : [];
+
+  const sortedInitialPlayers = initialPlayers.sort((a, b) => b.score - a.score);
 
   return (
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
@@ -70,8 +72,8 @@ export default function App() {
             <div className='mt-8 pb-10 border-cyan-400 grid xl:grid-cols-3 lg:grid-cols-1 gap-20 md:gap-x-80 border-b'>
 
               {/* rendering the cards dinamically based on the players sorted by score */}
-              {sortedPlayers.length > 0 ? (
-                              sortedPlayers.map((player, index) => (
+              {sortedInitialPlayers.length > 0 ? (
+                              sortedInitialPlayers.map((player, index) => (
                                 <div key={player.id} className="bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative lg:w-72 md:w-auto">
                                   {player.image && (
                                     <img className='w-full h-32 sm:h-48 object-cover rounded' src={player.image} alt='character img'></img>
@@ -116,7 +118,7 @@ export default function App() {
 
             </div>
 
-              <PlayerAdded sortedPlayers={sortedPlayers} />
+              <PlayerAdded sortedPlayers={sortedInitialPlayers} />
 
           </div>{/* cards wrapper */}
 

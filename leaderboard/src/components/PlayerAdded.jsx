@@ -7,7 +7,6 @@ const PlayerAdded = ({sortedPlayers}) => {
     //displaying the index based on the score similar to how it's done in sortedPlayers in App.jsx:
     //sorting the players array retrieved using useSelector and then determine the index based on that sorting
     //-->
-
     const sortedPlayersByScore = [...players].sort((a, b) => b.score - a.score);
 
     return(
