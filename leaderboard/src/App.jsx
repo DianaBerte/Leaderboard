@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux';
 
 export default function App() {
 
+  // see Combined Sorted Leaderboard
+
   const playersState = useSelector(state => state.players);
 
   const initialPlayers = playersState && playersState.players.content

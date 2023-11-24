@@ -4,14 +4,16 @@ const PlayerAdded = ({sortedPlayers}) => {
     
     const players = useSelector(state => state.singlePlayer.content);
 
+    const combinedPlayers = [...sortedPlayers, ...players]
+
     //displaying the index based on the score similar to how it's done in sortedPlayers in App.jsx:
     //sorting the players array retrieved using useSelector and then determine the index based on that sorting
     //-->
-    const sortedPlayersByScore = [...players].sort((a, b) => b.score - a.score);
+    const sortedCombinedPlayers = combinedPlayers.sort((a, b) => b.score - a.score);
 
     return(
         <>
-        {sortedPlayersByScore.map((player, index) => (
+        {sortedCombinedPlayers.map((player, index) => (
                     <div key={player.id}>
                     <div className='mb-6 py-4 px-4 text-white bg-secondary rounded overflow-hidden shadow-lg shadow-cyan-500'>
                         <span className='text-2xl font-extrabold text-fourth rounded-full animate-pulse'>{sortedPlayers.length + index + 1}</span>
