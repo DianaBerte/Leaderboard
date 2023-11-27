@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'tailwindcss/tailwind.css';
 import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
@@ -7,15 +7,22 @@ import { useSelector } from 'react-redux';
 
 export default function App() {
 
-  // see Combined Sorted Leaderboard
-
   const playersState = useSelector(state => state.players);
 
-  const initialPlayers = playersState && playersState.players.content
-  ? [...playersState.players.content]
-  : [];
+  const [players, setPlayers] = useState([]);
 
-  const sortedInitialPlayers = initialPlayers.sort((a, b) => b.score - a.score);
+  useEffect(() => {
+    if (playersState && playersState.players.content) {
+      const initialPlayers = [...playersState.players.content];
+      setPlayers(initialPlayers)
+    }
+  }, [playersState]);
+
+  // const initialPlayers = playersState && playersState.players.content
+  // ? [...playersState.players.content]
+  // : [];
+
+  const sortedPlayers = players.sort((a, b) => b.score - a.score);
 
   return (
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
@@ -74,8 +81,8 @@ export default function App() {
             <div className='mt-8 pb-10 border-cyan-400 grid xl:grid-cols-3 lg:grid-cols-1 gap-20 md:gap-x-80 border-b'>
 
               {/* rendering the cards dinamically based on the players sorted by score */}
-              {sortedInitialPlayers.length > 0 ? (
-                              sortedInitialPlayers.map((player, index) => (
+              {sortedPlayers.length > 0 ? (
+                              sortedPlayers.map((player, index) => (
                                 <div key={player.id} className="bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative lg:w-72 md:w-auto">
                                   {player.image && (
                                     <img className='w-full h-32 sm:h-48 object-cover rounded' src={player.image} alt='character img'></img>
@@ -120,7 +127,9 @@ export default function App() {
 
             </div>
 
-              <PlayerAdded sortedPlayers={sortedInitialPlayers} />
+              <PlayerAdded
+              sortedPlayers={sortedPlayers}
+              setPlayers={setPlayers} />
 
           </div>{/* cards wrapper */}
 

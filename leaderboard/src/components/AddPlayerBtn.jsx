@@ -3,8 +3,6 @@ import { ADD_NEW_PLAYER } from "../redux/actions";
 import { useState } from "react";
 
 const AddPlayerBtn = () => {
-    //the state my components are receiving is the whole state, not only one part of it.
-    //So, I can travel through it by state.player.content, etc.
 
     const dispatch = useDispatch();
     const [showForm, setShowForm] = useState(false);
@@ -37,14 +35,16 @@ const AddPlayerBtn = () => {
                         type="text"
                         value={playerName}
                         onChange={(e) => setPlayerName(e.target.value)}
+                        placeholder="Player Name"
                         ></input>
                     </label>
                     <label>
                         Player Score:
                         <input
-                        type="text"
+                        type="number"
                         value={playerScore}
                         onChange={(e) => setPlayerScore(e.target.value)}
+                        placeholder="Player Score"
                         ></input>
                     </label>
                     <button onClick={handleAddPlayer}>Submit</button>
