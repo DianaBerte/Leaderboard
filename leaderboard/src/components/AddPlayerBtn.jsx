@@ -1,19 +1,13 @@
-import { useDispatch } from "react-redux";
-import { ADD_NEW_PLAYER } from "../redux/actions";
 import { useState } from "react";
 
-const AddPlayerBtn = () => {
+const AddPlayerBtn = ({handleAddPlayer}) => {
 
-    const dispatch = useDispatch();
     const [showForm, setShowForm] = useState(false);
     const [playerName, setPlayerName] = useState('');
     const [playerScore, setPlayerScore] = useState('');
 
-    const handleAddPlayer = () => {
-        dispatch({
-            type: ADD_NEW_PLAYER,
-            payload: {name: playerName, score: playerScore}
-        });
+    const handleAdd = () => {
+        handleAddPlayer({ name: playerName, score: Number(playerScore)})
         setShowForm(false);
         setPlayerName('');
         setPlayerScore('');
@@ -47,7 +41,7 @@ const AddPlayerBtn = () => {
                         placeholder="Player Score"
                         ></input>
                     </label>
-                    <button onClick={handleAddPlayer}>Submit</button>
+                    <button onClick={handleAdd}>Submit</button>
                 </div>
            )}  
         </>

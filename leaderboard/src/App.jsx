@@ -3,13 +3,16 @@ import 'tailwindcss/tailwind.css';
 import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { ADD_NEW_PLAYER } from './redux/actions/index.js';
 
 export default function App() {
 
   const playersState = useSelector(state => state.players);
 
   const [players, setPlayers] = useState([]);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (playersState && playersState.players.content) {
@@ -23,6 +26,19 @@ export default function App() {
   // : [];
 
   const sortedPlayers = players.sort((a, b) => b.score - a.score);
+
+  const handleAddPlayer = (player) => {
+    dispatch({
+      type: ADD_NEW_PLAYER,
+      payload: player,
+    });
+
+    // If added player has the highest score, move them to index 1
+    if (player.score > sortedPlayers[0]?.score) {
+      setPlayers([player, ...sortedPlayers])
+    }
+
+  };
 
   return (
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
@@ -59,7 +75,7 @@ export default function App() {
                 </button>
               </li>
             </ul>                  
-            <AddPlayerBtn />
+            <AddPlayerBtn handleAddPlayer={handleAddPlayer} />
           </nav>
         </div>
 
@@ -129,7 +145,8 @@ export default function App() {
 
               <PlayerAdded
               sortedPlayers={sortedPlayers}
-              setPlayers={setPlayers} />
+              // setPlayers={setPlayers}
+              />
 
           </div>{/* cards wrapper */}
 
