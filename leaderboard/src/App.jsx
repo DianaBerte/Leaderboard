@@ -21,10 +21,6 @@ export default function App() {
     }
   }, [playersState]);
 
-  // const initialPlayers = playersState && playersState.players.content
-  // ? [...playersState.players.content]
-  // : [];
-
   const sortedPlayers = players.sort((a, b) => b.score - a.score);
 
   const handleAddPlayer = (player) => {
@@ -33,10 +29,14 @@ export default function App() {
       payload: player,
     });
 
-    // If added player has the highest score, move them to index 1
-    if (player.score > sortedPlayers[0]?.score) {
-      setPlayers([player, ...sortedPlayers])
-    }
+    // ? is optional chaining operator (prevents throwing an error)
+    // const handleAddPlayer = (player) => {
+    //   const index = sortedPlayers.findIndex((p) => player.score > p.score);
+    //   const newSortedPlayers =
+    //     index !== -1 ? [...sortedPlayers.slice(0, index), player, ...sortedPlayers.slice(index)] : [...sortedPlayers, player];
+    //   setPlayers(newSortedPlayers);
+    // };
+    
 
   };
 
