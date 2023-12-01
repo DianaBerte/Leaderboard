@@ -29,14 +29,13 @@ export default function App() {
       payload: player,
     });
 
-    // ? is optional chaining operator (prevents throwing an error)
-    // const handleAddPlayer = (player) => {
-    //   const index = sortedPlayers.findIndex((p) => player.score > p.score);
-    //   const newSortedPlayers =
-    //     index !== -1 ? [...sortedPlayers.slice(0, index), player, ...sortedPlayers.slice(index)] : [...sortedPlayers, player];
-    //   setPlayers(newSortedPlayers);
-    // };
-    
+        // ? is optional chaining operator (prevents throwing an error)
+    // If the index is found (index !== -1), it creates a new array by slicing sortedPlayers into three parts
+    // and inserting the player object in the middle at the appropriate position indicated by the index.  
+
+    const index = sortedPlayers.findIndex((p) => player.score > p.score);
+    const newSortedPlayers = index !== -1 ? [...sortedPlayers.slice(0, index), player, ...sortedPlayers.slice(index)] : [...sortedPlayers, player];
+    setPlayers(newSortedPlayers);
 
   };
 
