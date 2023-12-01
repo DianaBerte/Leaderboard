@@ -30,7 +30,8 @@ export default function App() {
     });
 
         // ? is optional chaining operator (prevents throwing an error)
-    // If the index is found (index !== -1), it creates a new array by slicing sortedPlayers into three parts
+    // 1) looping through sortedPlayers to find the index where the new player should be inserted;
+    // 2) If the index is found (index !== -1), it creates a new array by slicing sortedPlayers into three parts
     // and inserting the player object in the middle at the appropriate position indicated by the index.  
 
     const index = sortedPlayers.findIndex((p) => player.score > p.score);
