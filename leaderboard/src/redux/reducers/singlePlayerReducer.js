@@ -19,8 +19,9 @@ const singlePlayerReducer = (state = initialState, action) => {
         case REMOVE_PLAYER:
             return {
                 ...state,
-                content: [state.content.filter((el, i) => i !== action.payload)]
+                content: state.content.filter((el, i) => i !== action.payload)
             }
+
         default:
             return state
     }
