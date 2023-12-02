@@ -4,14 +4,12 @@ import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_NEW_PLAYER } from './redux/actions/index.js';
+import { ADD_NEW_PLAYER, ADD_PLAYER_TO_ADDED_LIST } from './redux/actions/index.js';
 
 export default function App() {
 
   const playersState = useSelector(state => state.players);
-
   const [players, setPlayers] = useState([]);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,6 +32,19 @@ export default function App() {
     // 2) If the index is found (index !== -1), it creates a new array by slicing sortedPlayers into three parts
     // and inserting the player object in the middle at the appropriate position indicated by the index.  
 
+    const updatedPlayers = [...players, player];
+    
+    const sortedUpdatedPlayers = updatedPlayers.sort((a, b) => b.score - a.score);
+
+    if (sortedUpdatedPlayers.findIndex((p) => p.id === player.id) < 3) {
+      setPlayers(sortedUpdatedPlayers.slice(0, 3));
+    } else {
+      dispatch({
+        type: ADD_PLAYER_TO_ADDED_LIST,
+        payload: player,
+      })
+    }
+    
     const index = sortedPlayers.findIndex((p) => player.score > p.score);
     const newSortedPlayers = index !== -1 ? [...sortedPlayers.slice(0, index), player, ...sortedPlayers.slice(index)] : [...sortedPlayers, player];
     setPlayers(newSortedPlayers);

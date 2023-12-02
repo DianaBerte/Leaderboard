@@ -1,6 +1,7 @@
 export const ADD_NEW_PLAYER = 'ADD_NEW_PLAYER'
 export const REMOVE_PLAYER = 'REMOVE_PLAYER'
 export const RENDER_PLAYERS_ARRAY = 'RENDER_PLAYERS_ARRAY'
+export const ADD_PLAYER_TO_ADDED_LIST = 'ADD_PLAYER_TO_ADDED_LIST'
 
 export const addPLayerAsync = (player) => {
     return async (dispatch, getState) => {
@@ -9,6 +10,13 @@ export const addPLayerAsync = (player) => {
             payload: player,
         })
     }
+}
+
+export const addPlayerToAddedList = (player) => {
+    return {
+        type: ADD_PLAYER_TO_ADDED_LIST,
+        payload: player,
+    };
 }
 
 export const removePlayer = (i) => {
