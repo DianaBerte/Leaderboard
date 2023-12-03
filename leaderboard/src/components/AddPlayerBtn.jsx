@@ -7,10 +7,15 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
     const [playerScore, setPlayerScore] = useState('');
 
     const handleAdd = () => {
-        handleAddPlayer({ name: playerName, score: Number(playerScore)})
+        if(playerName !== '' && !isNaN(playerScore) && playerScore !== '') {
+        const newPlayer = { name: playerName, score: Number(playerScore)};
+        handleAddPlayer(newPlayer);
         setShowForm(false);
         setPlayerName('');
         setPlayerScore('');
+        } else {
+            alert("Please enter a valid player name and score.")
+        }
     }
 
     return(
