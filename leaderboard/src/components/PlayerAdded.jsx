@@ -1,13 +1,5 @@
-import { useSelector } from "react-redux";
-
 const PlayerAdded = ({otherPlayers}) => {
     
-    const players = useSelector(state => state.singlePlayer.content);
-
-    const combinedPlayers = [...otherPlayers, ...players]
-
-    const sortedCombinedPlayers = combinedPlayers.sort((a, b) => b.score - a.score);
-
     return(
         <>
         {otherPlayers.map((player, index) => (
