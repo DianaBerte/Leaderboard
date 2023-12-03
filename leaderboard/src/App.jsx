@@ -9,12 +9,18 @@ import { ADD_NEW_PLAYER, ADD_PLAYER_TO_ADDED_LIST } from './redux/actions/index.
 export default function App() {
 
   const playersState = useSelector(state => state.players);
+
   const [players, setPlayers] = useState([]);
+  // const [topPlayers, setTopPlayers] = useState([]);
+  // const [otherPlayers, setOtherPlayers] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (playersState && playersState.players.content) {
       const initialPlayers = [...playersState.players.content];
+      const sorted = initialPlayers.sort((a, b) => b.score - a.score);
+      // setTopPlayers(sorted.slice(0, 3));
+      // setOtherPlayers(sorted.slice(3));
       setPlayers(initialPlayers)
     }
   }, [playersState]);
@@ -27,29 +33,27 @@ export default function App() {
       payload: player,
     });
 
-        // ? is optional chaining operator (prevents throwing an error)
-    // 1) looping through sortedPlayers to find the index where the new player should be inserted;
-    // 2) If the index is found (index !== -1), it creates a new array by slicing sortedPlayers into three parts
-    // and inserting the player object in the middle at the appropriate position indicated by the index.  
-
     const updatedPlayers = [...players, player];
     
     const sortedUpdatedPlayers = updatedPlayers.sort((a, b) => b.score - a.score);
 
-    if (sortedUpdatedPlayers.findIndex((p) => p.id === player.id) < 3) {
-      setPlayers(sortedUpdatedPlayers.slice(0, 3));
-    } else {
-      dispatch({
-        type: ADD_PLAYER_TO_ADDED_LIST,
-        payload: player,
-      })
-    }
+    // if (sortedUpdatedPlayers.findIndex((p) => p.id === player.id) < 3) {
+    //   setPlayers(sortedUpdatedPlayers.slice(0, 3));
+    // } else {
+    //   dispatch({
+    //     type: ADD_PLAYER_TO_ADDED_LIST,
+    //     payload: player,
+    //   })
+    // }
     
-    const index = sortedPlayers.findIndex((p) => player.score > p.score);
-    const newSortedPlayers = index !== -1 ? [...sortedPlayers.slice(0, index), player, ...sortedPlayers.slice(index)] : [...sortedPlayers, player];
-    setPlayers(newSortedPlayers);
+    // const index = sortedPlayers.findIndex((p) => player.score > p.score);
+    // const newSortedPlayers = index !== -1 ? [...sortedPlayers.slice(0, index), player, ...sortedPlayers.slice(index)] : [...sortedPlayers, player];
+    // setPlayers(newSortedPlayers);
 
   };
+
+  const topPlayers = players.slice(0, 3);
+  const otherPlayers = players.slice(3);
 
   return (
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
@@ -108,8 +112,8 @@ export default function App() {
             <div className='mt-8 pb-10 border-cyan-400 grid xl:grid-cols-3 lg:grid-cols-1 gap-20 md:gap-x-80 border-b'>
 
               {/* rendering the cards dinamically based on the players sorted by score */}
-              {sortedPlayers.length > 0 ? (
-                              sortedPlayers.map((player, index) => (
+              {topPlayers.length > 0 ? (
+                              topPlayers.map((player, index) => (
                                 <div key={player.id} className="bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative lg:w-72 md:w-auto">
                                   {player.image && (
                                     <img className='w-full h-32 sm:h-48 object-cover rounded' src={player.image} alt='character img'></img>
@@ -155,7 +159,7 @@ export default function App() {
             </div>
 
               <PlayerAdded
-              sortedPlayers={sortedPlayers}
+              otherPlayers={otherPlayers}
               // setPlayers={setPlayers}
               />
 
