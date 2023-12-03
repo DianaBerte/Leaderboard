@@ -9,21 +9,24 @@ import { ADD_NEW_PLAYER } from './redux/actions/index.js';
 export default function App() {
 
   const playersState = useSelector(state => state.players);
+  const dispatch = useDispatch();
 
   const [players, setPlayers] = useState([]);
   const [topPlayers, setTopPlayers] = useState([]);
   const [otherPlayers, setOtherPlayers] = useState([]);
-  const dispatch = useDispatch();
+
 
   useEffect(() => {
     if (playersState && playersState.players.content) {
       const initialPlayers = [...playersState.players.content];
-      // const sorted = initialPlayers.sort((a, b) => b.score - a.score);
-      setPlayers(initialPlayers)
+      setPlayers(initialPlayers);
+      const sortedInitialPlayers = initialPlayers.sort((a, b) => b.score - a.score);
+      const topPlayers = sortedInitialPlayers.slice(0, 3);
+      const otherPlayers = sortedInitialPlayers.slice(3);
+      setTopPlayers(topPlayers);
+      setOtherPlayers(otherPlayers)
     }
   }, [playersState]);
-
-  // const sortedPlayers = players.sort((a, b) => b.score - a.score);
 
   const handleAddPlayer = (player) => {
     dispatch({
@@ -35,14 +38,10 @@ export default function App() {
       const updatedPlayers = [...prevPlayers, player];
       const sortedUpadtedPlayers = updatedPlayers.sort((a, b) => b.score - a.score);
 
-      // Display top 3 players in App component
       const topPlayers = sortedUpadtedPlayers.slice(0, 3);
       const otherPlayers = sortedUpadtedPlayers.slice(3);
 
-      // Set top 3 players in state for App component
       setTopPlayers(topPlayers);
-
-      // Set other players in state for PlayerAdded component
       setOtherPlayers(otherPlayers);
 
       return sortedUpadtedPlayers
