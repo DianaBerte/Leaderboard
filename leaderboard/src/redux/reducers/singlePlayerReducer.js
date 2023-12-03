@@ -11,9 +11,11 @@ const singlePlayerReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_NEW_PLAYER:
+            const newPlayer = action.payload;
+            const updatedPlayers = [...state.content, newPlayer].sort((a, b) => b.score - a.score);
             return {
                 ...state,
-                content: [...state.content, action.payload]
+                content: updatedPlayers.slice(0, 3)
             }
 
         case REMOVE_PLAYER:

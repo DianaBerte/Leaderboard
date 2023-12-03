@@ -4,23 +4,21 @@ import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_NEW_PLAYER, ADD_PLAYER_TO_ADDED_LIST } from './redux/actions/index.js';
+import { ADD_NEW_PLAYER } from './redux/actions/index.js';
 
 export default function App() {
 
   const playersState = useSelector(state => state.players);
 
   const [players, setPlayers] = useState([]);
-  // const [topPlayers, setTopPlayers] = useState([]);
-  // const [otherPlayers, setOtherPlayers] = useState([]);
+  const [topPlayers, setTopPlayers] = useState([]);
+  const [otherPlayers, setOtherPlayers] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (playersState && playersState.players.content) {
       const initialPlayers = [...playersState.players.content];
       const sorted = initialPlayers.sort((a, b) => b.score - a.score);
-      // setTopPlayers(sorted.slice(0, 3));
-      // setOtherPlayers(sorted.slice(3));
       setPlayers(initialPlayers)
     }
   }, [playersState]);
@@ -33,27 +31,23 @@ export default function App() {
       payload: player,
     });
 
-    const updatedPlayers = [...players, player];
-    
-    const sortedUpdatedPlayers = updatedPlayers.sort((a, b) => b.score - a.score);
+    setPlayers((prevPlayers) => {
+      const updatedPlayers = [...prevPlayers, player];
+      const sortedUpadtedPlayers = updatedPlayers.sort((a, b) => b.score - a.score);
 
-    // if (sortedUpdatedPlayers.findIndex((p) => p.id === player.id) < 3) {
-    //   setPlayers(sortedUpdatedPlayers.slice(0, 3));
-    // } else {
-    //   dispatch({
-    //     type: ADD_PLAYER_TO_ADDED_LIST,
-    //     payload: player,
-    //   })
-    // }
-    
-    // const index = sortedPlayers.findIndex((p) => player.score > p.score);
-    // const newSortedPlayers = index !== -1 ? [...sortedPlayers.slice(0, index), player, ...sortedPlayers.slice(index)] : [...sortedPlayers, player];
-    // setPlayers(newSortedPlayers);
+      // Display top 3 players in App component
+      const topPlayers = sortedUpadtedPlayers.slice(0, 3);
+      const otherPlayers = sortedUpadtedPlayers.slice(3);
 
+      // Set top 3 players in state for App component
+      setTopPlayers(topPlayers);
+
+      // Set other players in state for PlayerAdded component
+      setOtherPlayers(otherPlayers);
+
+      return sortedUpadtedPlayers
+    });
   };
-
-  const topPlayers = players.slice(0, 3);
-  const otherPlayers = players.slice(3);
 
   return (
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
