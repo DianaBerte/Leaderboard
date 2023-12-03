@@ -18,12 +18,12 @@ export default function App() {
   useEffect(() => {
     if (playersState && playersState.players.content) {
       const initialPlayers = [...playersState.players.content];
-      const sorted = initialPlayers.sort((a, b) => b.score - a.score);
+      // const sorted = initialPlayers.sort((a, b) => b.score - a.score);
       setPlayers(initialPlayers)
     }
   }, [playersState]);
 
-  const sortedPlayers = players.sort((a, b) => b.score - a.score);
+  // const sortedPlayers = players.sort((a, b) => b.score - a.score);
 
   const handleAddPlayer = (player) => {
     dispatch({
