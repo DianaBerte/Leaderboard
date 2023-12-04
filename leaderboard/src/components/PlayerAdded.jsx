@@ -11,7 +11,9 @@ const PlayerAdded = ({otherPlayers}) => {
                         <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
                         <span className='text-md font-medium uppercase'>score</span>
                             <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
-                        <span className='text-md font-medium uppercase ml-4'>Gap: ...</span>
+                        <span className='text-md font-medium uppercase ml-4'>
+                            Gap: ...
+                        </span>
                     </div>
                 </div>
         ))}

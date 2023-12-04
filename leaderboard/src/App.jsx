@@ -147,11 +147,11 @@ export default function App() {
                             <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
                               <span className='text-sm font-medium uppercase'>score</span>
                                <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
-                                  <div className='text-sm font-medium uppercase'>Gap: 
+                                  <div className='text-sm font-medium uppercase'>
                                     {Array.isArray(player.gaps) && player.gaps.map((otherPlayerGap) => (
-                                                                          <span key={otherPlayerGap.name}>
-                                                                          {`${otherPlayerGap.name}: ${otherPlayerGap.gap}pt`}
-                                                                        </span>
+                                      <span key={otherPlayerGap.name}>Gap: 
+                                        {`${otherPlayerGap.name}: ${otherPlayerGap.gap}pt`}
+                                      </span>
                                     ))}
                               </div>
                             </div>
