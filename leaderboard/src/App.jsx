@@ -57,7 +57,9 @@ export default function App() {
       setTopPlayers(topPlayers);
       setOtherPlayers(otherPlayers);
 
-      return sortedUpadtedPlayers
+      const playersWithGap = calculateScoreGap(sortedUpadtedPlayers);
+
+      return playersWithGap
     });
   };
 
@@ -150,9 +152,9 @@ export default function App() {
                             <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
                               <span className='text-sm font-medium uppercase'>score</span>
                                <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
-                                  <div className='text-sm font-medium uppercase'>
+                                  <div className='text-sm font-medium'>
                                     {player.gap !== undefined ? (
-                                      <span>Gap: {player.gap !== null ? `${player.gap}pt` : `No one above me!`}</span>
+                                      <span>GAP: {player.gap !== null ? `${player.gap}pt` : `No one above me!`}</span>
                                     ) : (
                                       <span>No gap info</span>
                                     )}
