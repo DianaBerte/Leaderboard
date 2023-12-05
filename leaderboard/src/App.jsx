@@ -19,7 +19,10 @@ export default function App() {
     if (playersState && playersState.players.content) {
       const initialPlayers = [...playersState.players.content];
       setPlayers(initialPlayers);
-      const sortedInitialPlayers = initialPlayers.sort((a, b) => b.score - a.score);
+
+      const playersWithGap = calculateScoreGap(initialPlayers);
+      const sortedInitialPlayers = playersWithGap.sort((a, b) => b.score - a.score);
+
       const topPlayers = sortedInitialPlayers.slice(0, 3);
       const otherPlayers = sortedInitialPlayers.slice(3);
       setTopPlayers(topPlayers);
@@ -28,13 +31,13 @@ export default function App() {
   }, [playersState]);
 
   const calculateScoreGap = (playerList) => {
-    return playerList.map((player, index) => {
-      const otherPlayerList = playerList.filter((p, i) => i !== index);
-      const gaps = otherPlayerList.map((otherPlayer) => ({
-        name: otherPlayer.name,
-        gap: otherPlayer.score - player.score,
-      }));
-      return {...player, gaps}
+    const sortedPlayers = [...playerList].sort((a, b) => b.score - a.score);
+    return sortedPlayers.map((player, index) => {
+      if (index === 0) {
+        return {...player, gap: null};
+      };
+      const gap = sortedPlayers[index - 1].score - player.score;
+      return {...player, gap}
     });
   };
 
@@ -148,11 +151,11 @@ export default function App() {
                               <span className='text-sm font-medium uppercase'>score</span>
                                <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
                                   <div className='text-sm font-medium uppercase'>
-                                    {Array.isArray(player.gaps) && player.gaps.map((otherPlayerGap) => (
-                                      <span key={otherPlayerGap.name}>Gap: 
-                                        {`${otherPlayerGap.name}: ${otherPlayerGap.gap}pt`}
-                                      </span>
-                                    ))}
+                                    {player.gap !== undefined ? (
+                                      <span>Gap: {player.gap !== null ? `${player.gap}pt` : `No one above me!`}</span>
+                                    ) : (
+                                      <span>No gap info</span>
+                                    )}
                               </div>
                             </div>
                               <div className='bg-third text-white text-6xl font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8 animate-bounce'>
