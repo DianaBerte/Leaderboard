@@ -32,13 +32,14 @@ export default function App() {
 
   const calculateScoreGap = (playerList) => {
     const sortedPlayers = [...playerList].sort((a, b) => b.score - a.score);
-    return sortedPlayers.map((player, index) => {
+    const playersWithGap = sortedPlayers.map((player, index) => {
       if (index === 0) {
         return {...player, gap: null};
       };
       const gap = sortedPlayers[index - 1].score - player.score;
       return {...player, gap}
     });
+    return playersWithGap;
   };
 
   const handleAddPlayer = (player) => {
