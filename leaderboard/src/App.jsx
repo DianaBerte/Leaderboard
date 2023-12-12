@@ -52,13 +52,13 @@ export default function App() {
       const updatedPlayers = [...prevPlayers, player];
       const sortedUpadtedPlayers = updatedPlayers.sort((a, b) => b.score - a.score);
 
-      const topPlayers = sortedUpadtedPlayers.slice(0, 3);
-      const otherPlayers = sortedUpadtedPlayers.slice(3);
+      const playersWithGap = calculateScoreGap(sortedUpadtedPlayers);
+
+      const topPlayers = playersWithGap.slice(0, 3);
+      const otherPlayers = playersWithGap.slice(3);
 
       setTopPlayers(topPlayers);
       setOtherPlayers(otherPlayers);
-
-      const playersWithGap = calculateScoreGap(sortedUpadtedPlayers);
 
       return playersWithGap
     });
