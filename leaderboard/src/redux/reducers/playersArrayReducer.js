@@ -1,7 +1,5 @@
 import { RENDER_PLAYERS_ARRAY } from '../actions/index';
 
-//see: Array of Players
-
 export const initialState = {
     players: {
         content: [
