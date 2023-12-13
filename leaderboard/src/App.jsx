@@ -67,11 +67,19 @@ export default function App() {
   const handleIncreaseScore = (playerID) => {
     setPlayers((prevPlayers) => {
       const updatedPlayers = prevPlayers.map((player) => {
-        if (player.id === playerID) {
-          return console.log("INCREASING"), {...player, score: player.score + 10};
+        if (player.id === playerID) {        
+          console.log("INCREASING");
+          return {...player, score: player.score + 10};
         }
         return player;
-      })
+      });
+      console.log("updatedPlayers: ", updatedPlayers);
+      const topPlayers = updatedPlayers.slice(0, 3);
+      const otherPlayers = updatedPlayers.slice(3);
+
+      setTopPlayers(topPlayers);
+      setOtherPlayers(otherPlayers);
+
       return updatedPlayers;
     });
   };
@@ -80,10 +88,18 @@ export default function App() {
     setPlayers((prevPlayers) => {
       const updatedPlayers = prevPlayers.map((player) => {
         if (player.id === playerID) {
-          return console.log("DECREASING"), {...player, score: player.score - 10};
+          console.log("DECREASING");
+          return {...player, score: player.score - 10};
         }
         return player;
-      })
+      });
+      console.log("updatedPlayers: ", updatedPlayers);
+      const topPlayers = updatedPlayers.slice(0, 3);
+      const otherPlayers = updatedPlayers.slice(3);
+
+      setTopPlayers(topPlayers);
+      setOtherPlayers(otherPlayers);
+      
       return updatedPlayers;
     });
   };
