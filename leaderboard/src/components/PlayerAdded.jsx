@@ -1,3 +1,5 @@
+//handleIncrease & handleDecrease are not defined
+
 const PlayerAdded = ({otherPlayers}) => {
     
     return(
@@ -8,9 +10,9 @@ const PlayerAdded = ({otherPlayers}) => {
                         <span className='text-2xl font-extrabold text-fourth rounded-full animate-pulse'>{otherPlayers.length + index + 1}</span>
                         <span className='text-2xl font-extrabold ml-4'>{player.name}</span>
                         <span className='text-xl font-bold animate-pulse text-fourth ml-4 mr-4'>{player.score}pt</span>
-                        <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
-                        <span className='text-md font-medium uppercase'>score</span>
-                            <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
+                        <button ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
+                            <span className='text-md font-medium uppercase'>score</span>
+                        <button ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
                         <span className='text-md font-medium ml-4'>GAP: {player.gap}pt</span>
                     </div>
                 </div>

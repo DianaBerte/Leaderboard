@@ -67,13 +67,11 @@ export default function App() {
   const handleIncreaseScore = (playerID) => {
     setPlayers((prevPlayers) => {
       const updatedPlayers = prevPlayers.map((player) => {
-        if (player.id === playerID) {        
-          console.log("INCREASING");
+        if (player.id === playerID) {
           return {...player, score: player.score + 10};
         }
         return player;
       });
-      console.log("updatedPlayers: ", updatedPlayers);
       const topPlayers = updatedPlayers.slice(0, 3);
       const otherPlayers = updatedPlayers.slice(3);
 
@@ -88,21 +86,21 @@ export default function App() {
     setPlayers((prevPlayers) => {
       const updatedPlayers = prevPlayers.map((player) => {
         if (player.id === playerID) {
-          console.log("DECREASING");
           return {...player, score: player.score - 10};
         }
         return player;
       });
-      console.log("updatedPlayers: ", updatedPlayers);
       const topPlayers = updatedPlayers.slice(0, 3);
       const otherPlayers = updatedPlayers.slice(3);
 
       setTopPlayers(topPlayers);
       setOtherPlayers(otherPlayers);
-      
+
       return updatedPlayers;
     });
   };
+
+  //move functions to reducer; otherPlayers must be passed to PlayerAdded after the modifications
 
   return (
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
