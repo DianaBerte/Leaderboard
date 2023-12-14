@@ -2,6 +2,8 @@ export const ADD_NEW_PLAYER = 'ADD_NEW_PLAYER'
 export const REMOVE_PLAYER = 'REMOVE_PLAYER'
 export const RENDER_PLAYERS_ARRAY = 'RENDER_PLAYERS_ARRAY'
 export const ADD_PLAYER_TO_ADDED_LIST = 'ADD_PLAYER_TO_ADDED_LIST'
+export const INCREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE'
+export const DECREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE'
 
 export const addPLayerAsync = (player) => {
     return async (dispatch, getState) => {
@@ -31,4 +33,18 @@ export const renderPlayersArray = (player) => {
         type: RENDER_PLAYERS_ARRAY,
         payload: player
     };
+}
+
+export const increasePlayerScore = (playerID) => {
+    return {
+        type: INCREASE_PLAYER_SCORE,
+        payload: playerID,
+    }
+}
+
+export const decreasePlayerScore = (playerID) => {
+    return {
+        type: DECREASE_PLAYER_SCORE,
+        payload: playerID,
+    }
 }
