@@ -34,7 +34,7 @@ const singlePlayerReducer = (state = initialState, action) => {
                     return player;
                 });
             }
-            console.log("HIIIIIIIIIIIIIIIII")
+            console.log("HELLO")
             return state;
 
         case DECREASE_PLAYER_SCORE:
