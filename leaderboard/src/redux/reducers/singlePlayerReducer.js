@@ -26,31 +26,30 @@ const singlePlayerReducer = (state = initialState, action) => {
             };
 
         case INCREASE_PLAYER_SCORE:
-            if (Array.isArray(state)) {
-                return state.map((player) => {
+            return {
+                ...state,
+                content: state.content.map((player) => {
                     if (player.id === action.payload) {
                         return { ...player, score: player.score + 10 };
                     }
                     return player;
-                });
-            }
-            console.log("HELLO")
-            return state;
+                }),
+            };
 
         case DECREASE_PLAYER_SCORE:
-            if (Array.isArray(state)) {
-                return state.map((player) => {
+            return {
+                ...state,
+                content: state.content.map((player) => {
                     if (player.id === action.payload) {
                         return { ...player, score: player.score - 10 };
                     }
                     return player;
-                });
-            }
-            return state;
+                })
+            };
 
         default:
-            return state
+            return state;
     }
-}
+};
 
 export default singlePlayerReducer

@@ -103,10 +103,12 @@ export default function App() {
   //move functions to reducer; otherPlayers must be passed to PlayerAdded after the modifications
 
   const handleIncreaseScore = (playerID) => {
+    console.log("HHEEEEEEEEEEEEEEELLOOOOOOOOOOOO")
     dispatch(increasePlayerScore(playerID));
   };
 
   const handleDecreaseScore = (playerID) => {
+    console.log("hi")
     dispatch(decreasePlayerScore(playerID));
   };
 
