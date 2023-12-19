@@ -36,6 +36,7 @@ export const renderPlayersArray = (player) => {
 }
 
 export const increasePlayerScore = (playerID) => {
+    console.log("playerID", playerID);
     return {
         type: INCREASE_PLAYER_SCORE,
         payload: playerID,
@@ -43,6 +44,7 @@ export const increasePlayerScore = (playerID) => {
 }
 
 export const decreasePlayerScore = (playerID) => {
+    console.log("playerID", playerID);
     return {
         type: DECREASE_PLAYER_SCORE,
         payload: playerID,

@@ -26,9 +26,11 @@ const singlePlayerReducer = (state = initialState, action) => {
             };
 
         case INCREASE_PLAYER_SCORE:
+            console.log("HELLO, THIS IS REDUCER conten before mapping: ", state.content)
             return {
                 ...state,
                 content: state.content.map((player) => {
+                    console.log("REDUCER player: ", player)
                     if (player.id === action.payload) {
                         return { ...player, score: player.score + 10 };
                     }
