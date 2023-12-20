@@ -25,30 +25,6 @@ const singlePlayerReducer = (state = initialState, action) => {
                 content: state.content.filter((el, i) => i !== action.payload)
             };
 
-        case INCREASE_PLAYER_SCORE:
-            console.log("HELLO, THIS IS REDUCER conten before mapping: ", state.content)
-            return {
-                ...state,
-                content: state.content.map((player) => {
-                    console.log("REDUCER player: ", player)
-                    if (player.id === action.payload) {
-                        return { ...player, score: player.score + 10 };
-                    }
-                    return player;
-                }),
-            };
-
-        case DECREASE_PLAYER_SCORE:
-            return {
-                ...state,
-                content: state.content.map((player) => {
-                    if (player.id === action.payload) {
-                        return { ...player, score: player.score - 10 };
-                    }
-                    return player;
-                })
-            };
-
         default:
             return state;
     }

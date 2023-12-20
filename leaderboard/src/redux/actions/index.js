@@ -1,9 +1,9 @@
-export const ADD_NEW_PLAYER = 'ADD_NEW_PLAYER'
-export const REMOVE_PLAYER = 'REMOVE_PLAYER'
-export const RENDER_PLAYERS_ARRAY = 'RENDER_PLAYERS_ARRAY'
-export const ADD_PLAYER_TO_ADDED_LIST = 'ADD_PLAYER_TO_ADDED_LIST'
-export const INCREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE'
-export const DECREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE'
+export const ADD_NEW_PLAYER = 'ADD_NEW_PLAYER';
+export const REMOVE_PLAYER = 'REMOVE_PLAYER';
+export const RENDER_PLAYERS_ARRAY = 'RENDER_PLAYERS_ARRAY';
+export const ADD_PLAYER_TO_ADDED_LIST = 'ADD_PLAYER_TO_ADDED_LIST';
+export const INCREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE';
+export const DECREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE';
 
 export const addPLayerAsync = (player) => {
     return async (dispatch, getState) => {
@@ -12,13 +12,6 @@ export const addPLayerAsync = (player) => {
             payload: player,
         })
     }
-}
-
-export const addPlayerToAddedList = (player) => {
-    return {
-        type: ADD_PLAYER_TO_ADDED_LIST,
-        payload: player,
-    };
 }
 
 export const removePlayer = (i) => {
@@ -36,7 +29,7 @@ export const renderPlayersArray = (player) => {
 }
 
 export const increasePlayerScore = (playerID) => {
-    console.log("playerID", playerID);
+    console.log("increasePlayerScore playerID", playerID);
     return {
         type: INCREASE_PLAYER_SCORE,
         payload: playerID,
@@ -44,7 +37,7 @@ export const increasePlayerScore = (playerID) => {
 }
 
 export const decreasePlayerScore = (playerID) => {
-    console.log("playerID", playerID);
+    console.log("decreasePlayerScore playerID", playerID);
     return {
         type: DECREASE_PLAYER_SCORE,
         payload: playerID,

@@ -1,4 +1,4 @@
-import { RENDER_PLAYERS_ARRAY, INCREASE_PLAYER_SCORE } from '../actions/index';
+import { RENDER_PLAYERS_ARRAY, INCREASE_PLAYER_SCORE, DECREASE_PLAYER_SCORE } from '../actions/index';
 
 export const initialState = {
     players: {
@@ -23,7 +23,7 @@ const playersArrayReducer = (state = initialState, action) => {
             };
 
         case INCREASE_PLAYER_SCORE:
-            console.log("HELLO, THIS IS REDUCER conten before mapping: ", state.content)
+            console.log("HELLO, THIS IS REDUCER content before mapping: ", state.content)
             return {
                 ...state,
                 content: state.players.content.map((player) => {
@@ -33,6 +33,17 @@ const playersArrayReducer = (state = initialState, action) => {
                     }
                     return player;
                 }),
+            };
+
+        case DECREASE_PLAYER_SCORE:
+            return {
+                ...state,
+                content: state.content.map((player) => {
+                    if (player.id === action.payload) {
+                        return { ...player, score: player.score - 10 };
+                    }
+                    return player;
+                })
             };
 
         default:

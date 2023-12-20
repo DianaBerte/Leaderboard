@@ -4,7 +4,7 @@ import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_NEW_PLAYER, increasePlayerScore, decreasePlayerScore } from './redux/actions/index.js';
+import { addPLayerAsync, increasePlayerScore, decreasePlayerScore } from './redux/actions/index.js';
 
 export default function App() {
 
@@ -43,10 +43,7 @@ export default function App() {
   };
 
   const handleAddPlayer = (player) => {
-    dispatch({
-      type: ADD_NEW_PLAYER,
-      payload: player,
-    });
+    dispatch(addPLayerAsync(player));
 
     setPlayers((prevPlayers) => {
       const updatedPlayers = [...prevPlayers, player];
