@@ -4,12 +4,11 @@ import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPLayerAsync, increasePlayerScore, decreasePlayerScore, renderPlayersArray } from './redux/actions/index.js';
+import { addPlayer, increasePlayerScore, decreasePlayerScore, renderPlayersArray } from './redux/actions/index.js';
 
 export default function App() {
 
   const playersState = useSelector(state => state.players);
-
   const dispatch = useDispatch();
 
   const [players, setPlayers] = useState([]);
@@ -19,21 +18,6 @@ export default function App() {
   useEffect(() => {
     dispatch(renderPlayersArray());
   }, [dispatch]);
-
-  useEffect(() => {
-    if (playersState && playersState.content) {
-      const initialPlayers = [...playersState.content];
-
-      const playersWithGap = calculateScoreGap(initialPlayers);
-      const sortedInitialPlayers = playersWithGap.sort((a, b) => b.score - a.score);
-
-      const topPlayers = sortedInitialPlayers.slice(0, 3);
-      const otherPlayers = sortedInitialPlayers.slice(3);
-
-      setTopPlayers(topPlayers);
-      setOtherPlayers(otherPlayers);
-    }
-  }, [playersState]);
 
   const calculateScoreGap = (playerList) => {
     const sortedPlayers = [...playerList].sort((a, b) => b.score - a.score);
@@ -47,22 +31,36 @@ export default function App() {
     return playersWithGap;
   };
 
-  const handleAddPlayer = (player) => {
-    dispatch(addPLayerAsync(player));
+  useEffect(() => {
+    if (playersState && playersState.content) {
+      const initialPlayers = [...playersState.content];
+      const playersWithGap = calculateScoreGap(initialPlayers);
 
-    setPlayers((prevPlayers) => {
-      const updatedPlayers = [...prevPlayers, player];
-      const sortedUpadtedPlayers = updatedPlayers.sort((a, b) => b.score - a.score);
-
-      const playersWithGap = calculateScoreGap(sortedUpadtedPlayers);
-
-      const topPlayers = playersWithGap.slice(0, 3);
-      const otherPlayers = playersWithGap.slice(3);
+      const sortedInitialPlayers = playersWithGap.sort((a, b) => b.score - a.score);
+      const topPlayers = sortedInitialPlayers.slice(0, 3);
+      const otherPlayers = sortedInitialPlayers.slice(3);
 
       setTopPlayers(topPlayers);
       setOtherPlayers(otherPlayers);
+    }
+  }, [playersState]);
 
-      return playersWithGap
+  const handleAddPlayer = (player) => {
+    dispatch(addPlayer(player));
+  
+    setPlayers((prevPlayers) => {
+      const updatedPlayers = [...prevPlayers, player];
+      const sortedUpdatedPlayers = updatedPlayers.sort((a, b) => b.score - a.score);
+  
+      const playersWithGap = calculateScoreGap(sortedUpdatedPlayers);
+  
+      const updatedTopPlayers = playersWithGap.slice(0, 3);
+      const updatedOtherPlayers = playersWithGap.slice(3);
+  
+      setTopPlayers(updatedTopPlayers);
+      setOtherPlayers(updatedOtherPlayers);
+  
+      return sortedUpdatedPlayers;
     });
   };
 
@@ -217,7 +215,7 @@ export default function App() {
                           </div>
                         ))
               ) : (
-                <p>Loading players...</p>
+                <h3>Loading players...</h3>
               )}
             </div>
             <PlayerAdded
