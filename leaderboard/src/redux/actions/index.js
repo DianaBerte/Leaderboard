@@ -5,6 +5,9 @@ export const ADD_PLAYER_TO_ADDED_LIST = 'ADD_PLAYER_TO_ADDED_LIST';
 export const INCREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE';
 export const DECREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE';
 
+export const url = "https://diana-be-3cf48a52853d.herokuapp.com/users";
+export const auth = process.env.REACT_APP_AUTH;
+
 export const addPLayerAsync = (player) => {
     return async (dispatch, getState) => {
         dispatch({
@@ -21,12 +24,29 @@ export const removePlayer = (i) => {
     }
 }
 
-export const renderPlayersArray = (player) => {
-    return {
-        type: RENDER_PLAYERS_ARRAY,
-        payload: player
+export const renderPlayersArray = () => {
+    return async (dispatch) => {
+        try {
+            const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                    Authorization: auth,
+                },
+            });
+            if (response.ok) {
+                const data = await response.json();
+                dispatch({
+                    type: RENDER_PLAYERS_ARRAY,
+                    payload: data,
+                });
+            } else {
+                console.log("renderPlayersArray Error");
+            }
+        } catch (error) {
+            console.log("renderPlayersArray Error");
+        };
     };
-}
+};
 
 export const increasePlayerScore = (playerID) => {
     console.log("increasePlayerScore playerID", playerID);

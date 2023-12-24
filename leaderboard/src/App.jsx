@@ -4,11 +4,12 @@ import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPLayerAsync, increasePlayerScore, decreasePlayerScore } from './redux/actions/index.js';
+import { addPLayerAsync, increasePlayerScore, decreasePlayerScore, renderPlayersArray } from './redux/actions/index.js';
 
 export default function App() {
 
   const playersState = useSelector(state => state.players);
+
   const dispatch = useDispatch();
 
   const [players, setPlayers] = useState([]);
@@ -16,17 +17,21 @@ export default function App() {
   const [otherPlayers, setOtherPlayers] = useState([]);
 
   useEffect(() => {
-    if (playersState && playersState.players.content) {
-      const initialPlayers = [...playersState.players.content];
-      setPlayers(initialPlayers);
+    dispatch(renderPlayersArray());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (playersState && playersState.content) {
+      const initialPlayers = [...playersState.content];
 
       const playersWithGap = calculateScoreGap(initialPlayers);
       const sortedInitialPlayers = playersWithGap.sort((a, b) => b.score - a.score);
 
       const topPlayers = sortedInitialPlayers.slice(0, 3);
       const otherPlayers = sortedInitialPlayers.slice(3);
+
       setTopPlayers(topPlayers);
-      setOtherPlayers(otherPlayers)
+      setOtherPlayers(otherPlayers);
     }
   }, [playersState]);
 
@@ -168,14 +173,14 @@ export default function App() {
               {/* rendering the cards dinamically based on the players sorted by score */}
               {topPlayers.length > 0 ? (
                 topPlayers.map((player, index) => (
-                  <div key={player.id} className="bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative lg:w-72 md:w-auto">
+                  <div key={player._id} className="bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative lg:w-72 md:w-auto">
                     {player.image && (
                       <img className='w-full h-32 sm:h-48 object-cover rounded' src={player.image} alt='character img'></img>
                         )}
                           <div className='m-4 text-secondary'>
                           <div className="flex items-center">
                             {player.name && (
-                              <div className='text-2xl font-extrabold animate-bounce'>{player.name}</div>
+                              <div className='text-2xl font-extrabold animate-bounce'>{player.surname}</div>
                               )}
                               <div className='bg-fourth text-secondary font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>
                                 {player.score && (
@@ -212,7 +217,7 @@ export default function App() {
                           </div>
                         ))
               ) : (
-                <p>No players available</p>
+                <p>Loading players...</p>
               )}
             </div>
             <PlayerAdded
