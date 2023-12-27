@@ -45,23 +45,27 @@ export default function App() {
     }
   }, [playersState]);
 
-  const handleAddPlayer = (player) => {
-    dispatch(addPlayer(player));
+  const handleAddPlayer = async (player) => {
+    try {
+      const addedPlayer = await dispatch(addPlayer(player));
   
-    setPlayers((prevPlayers) => {
-      const updatedPlayers = [...prevPlayers, player];
-      const sortedUpdatedPlayers = updatedPlayers.sort((a, b) => b.score - a.score);
+      setPlayers((prevPlayers) => {
+        const updatedPlayers = [...prevPlayers, addedPlayer];
+        const sortedUpdatedPlayers = updatedPlayers.sort((a, b) => b.score - a.score);
   
-      const playersWithGap = calculateScoreGap(sortedUpdatedPlayers);
+        const playersWithGap = calculateScoreGap(sortedUpdatedPlayers);
   
-      const updatedTopPlayers = playersWithGap.slice(0, 3);
-      const updatedOtherPlayers = playersWithGap.slice(3);
+        const topPlayers = playersWithGap.slice(0, 3);
+        const otherPlayers = playersWithGap.slice(3);
   
-      setTopPlayers(updatedTopPlayers);
-      setOtherPlayers(updatedOtherPlayers);
+        setTopPlayers(topPlayers);
+        setOtherPlayers(otherPlayers);
   
-      return sortedUpdatedPlayers;
-    });
+        return playersWithGap;
+      });
+    } catch (error) {
+      console.error("handleAddPlayer error:", error);
+    }
   };
 
   // const handleIncreaseScore = (playerID) => {
