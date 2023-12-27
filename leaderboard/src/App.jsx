@@ -48,6 +48,7 @@ export default function App() {
   const handleAddPlayer = async (player) => {
     try {
       const addedPlayer = await dispatch(addPlayer(player));
+      dispatch(renderPlayersArray());
   
       setPlayers((prevPlayers) => {
         const updatedPlayers = [...prevPlayers, addedPlayer];
@@ -182,7 +183,7 @@ export default function App() {
                           <div className='m-4 text-secondary'>
                           <div className="flex items-center">
                             {player.name && (
-                              <div className='text-2xl font-extrabold animate-bounce'>{player.surname}</div>
+                              <div className='text-2xl font-extrabold animate-bounce'>{player.name}</div>
                               )}
                               <div className='bg-fourth text-secondary font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>
                                 {player.score && (
