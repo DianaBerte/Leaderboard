@@ -4,7 +4,7 @@ import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPlayer, increasePlayerScore, decreasePlayerScore, renderPlayersArray } from './redux/actions/index.js';
+import { addPlayer, increasePlayerScore, decreasePlayerScore, renderPlayersArray, removePlayer } from './redux/actions/index.js';
 
 export default function App() {
 
@@ -220,7 +220,7 @@ export default function App() {
                                 <div className='flex items-center justify-center'>{index + 1}</div>
                               </div>
                               <div className='flex justify-end'>
-                                <button>
+                                <button onClick={() => removePlayer(player.id)}>
                                   <svg className="mb-2 w-20 h-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" ><path clipRule="evenodd" fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" /></svg>
                                 </button>
                               </div>

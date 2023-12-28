@@ -8,6 +8,30 @@ export const DECREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE';
 export const url = "https://diana-be-3cf48a52853d.herokuapp.com/users";
 export const auth = process.env.REACT_APP_AUTH;
 
+export const renderPlayersArray = () => {
+    return async (dispatch) => {
+        try {
+            const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                    Authorization: auth,
+                },
+            });
+            if (response.ok) {
+                const data = await response.json();
+                dispatch({
+                    type: RENDER_PLAYERS_ARRAY,
+                    payload: data,
+                });
+            } else {
+                console.log("renderPlayersArray Error");
+            }
+        } catch (error) {
+            console.log("renderPlayersArray Error");
+        };
+    };
+};
+
 export const addPlayer = (player) => {
     return async (dispatch) => {
         try {
@@ -35,34 +59,26 @@ export const addPlayer = (player) => {
     };
 };
 
-export const removePlayer = (i) => {
-    return {
-        type: REMOVE_PLAYER,
-        payload: i,
-    }
-}
-
-export const renderPlayersArray = () => {
+export const removePlayer = (playerId) => {
     return async (dispatch) => {
         try {
-            const response = await fetch(url, {
-                method: "GET",
+            const response = await fetch(`${url}/${playerId}`, {
+                method: "DELETE",
                 headers: {
+                    "Content-Type": "application/json",
                     Authorization: auth,
                 },
             });
-            if (response.ok) {
-                const data = await response.json();
-                dispatch({
-                    type: RENDER_PLAYERS_ARRAY,
-                    payload: data,
-                });
-            } else {
-                console.log("renderPlayersArray Error");
+            if (!response.ok) {
+                throw new Error("Failed to delete player");
             }
+            dispatch({
+                type: REMOVE_PLAYER,
+                payload: playerId,
+            });
         } catch (error) {
-            console.log("renderPlayersArray Error");
-        };
+            console.error("Error in removePlayer: ", error)
+        }
     };
 };
 
