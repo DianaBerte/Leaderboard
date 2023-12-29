@@ -19,13 +19,16 @@ const playersArrayReducer = (state = initialState, action) => {
             console.log("HELLO, THIS IS REDUCER content before mapping: ", state.content)
             return {
                 ...state,
-                content: state.players.content.map((player) => {
-                    console.log("REDUCER player: ", player)
-                    if (player.id === action.payload) {
-                        return { ...player, score: player.score + 10 };
-                    }
-                    return player;
-                }),
+                players: {
+                    ...state.content,
+                    content: state.content.map((currentPlayer) => {
+                        console.log("hiiiiiiiiiiiiiiiiiii REDUCER player: ", currentPlayer);
+                        if (currentPlayer._id === action.payload) {
+                            return { ...currentPlayer, score: currentPlayer.score + 10 };
+                        }
+                        return currentPlayer;
+                    }),
+                },
             };
 
         case DECREASE_PLAYER_SCORE:

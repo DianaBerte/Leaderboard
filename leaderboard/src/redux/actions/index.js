@@ -85,11 +85,14 @@ export const removePlayer = (playerId) => {
 
 export const increasePlayerScore = (playerID) => {
     console.log("increasePlayerScore playerID", playerID);
-    return {
-        type: INCREASE_PLAYER_SCORE,
-        payload: playerID,
-    }
-}
+    return async (dispatch) => {
+        dispatch({
+            type: INCREASE_PLAYER_SCORE,
+            payload: playerID,
+        });
+        dispatch(renderPlayersArray());
+    };
+};
 
 export const decreasePlayerScore = (playerID) => {
     console.log("decreasePlayerScore playerID", playerID);
