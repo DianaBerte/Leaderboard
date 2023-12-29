@@ -20,9 +20,10 @@ const singlePlayerReducer = (state = initialState, action) => {
             };
 
         case REMOVE_PLAYER:
+            const newlyUpdatedPlayers = state.content.filter(player => player._id !== action.payload);
             return {
                 ...state,
-                content: state.content.filter((el, i) => i !== action.payload)
+                content: newlyUpdatedPlayers,
             };
 
         default:
