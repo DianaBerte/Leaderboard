@@ -107,8 +107,12 @@ export default function App() {
 
   //move functions to reducer; otherPlayers must be passed to PlayerAdded after the modifications
 
-  const handleRemovePlayer = (playerId) => {
-    dispatch(removePlayer(playerId));
+  const handleRemovePlayer = async (playerId) => {
+    try {
+      dispatch(removePlayer(playerId));
+    } catch (error) {
+      console.error("handleRemovePlayer: ", error)
+    }
   };
 
   const handleIncreaseScore = (playerID) => {

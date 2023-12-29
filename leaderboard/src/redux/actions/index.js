@@ -76,6 +76,7 @@ export const removePlayer = (playerId) => {
                 type: REMOVE_PLAYER,
                 payload: playerId,
             });
+            dispatch(renderPlayersArray());
         } catch (error) {
             console.error("Error in removePlayer: ", error)
         }
