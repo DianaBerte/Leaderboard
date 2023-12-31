@@ -16,19 +16,14 @@ const playersArrayReducer = (state = initialState, action) => {
             };
 
         case INCREASE_PLAYER_SCORE:
-            console.log("state.content: ", state.content)
             return {
                 ...state,
                 content: state.content.map((currentPlayer) => {
                     if (currentPlayer._id === action.payload) {
-                        console.log("Found the player to update: ", currentPlayer);
-                        return {
-                            ...currentPlayer,
-                            score: currentPlayer.score + 10
-                        };
+                        return { ...currentPlayer, score: currentPlayer.score + 10 };
                     }
                     return currentPlayer;
-                })
+                }),
             };
 
         case DECREASE_PLAYER_SCORE:

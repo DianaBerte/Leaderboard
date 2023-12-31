@@ -97,7 +97,6 @@ export const increasePlayerScore = (playerID) => {
                     type: INCREASE_PLAYER_SCORE,
                     payload: playerID,
                 });
-                // dispatch(renderPlayersArray());
             } else {
                 console.log("renderPlayersArray Error");
             }
