@@ -17,6 +17,7 @@ export default function App() {
 
   useEffect(() => {
     dispatch(renderPlayersArray());
+    console.log("HEEEEEEEEEEELLO")
   }, [dispatch]);
 
   const calculateScoreGap = (playerList) => {
@@ -117,11 +118,12 @@ export default function App() {
 
   const handleIncreaseScore = (playerID) => {
     dispatch(increasePlayerScore(playerID));
+    console.log("increasing")
   };
 
   const handleDecreaseScore = (playerID) => {
     dispatch(decreasePlayerScore(playerID));
-    console.log("hi playerID:", playerID)
+    console.log("decreasing")
   };
 
   return (
@@ -212,7 +214,7 @@ export default function App() {
                               </svg>
                             </div>
                             
-                            <button onClick={() => handleDecreaseScore(player._id)}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
+                            <button onClick={() => handleDecreaseScore(player._id)} ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
                               <span className='text-sm font-medium uppercase'>score</span>
                                <button onClick={() => handleIncreaseScore(player._id)}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
                                   <div className='text-sm font-medium'>

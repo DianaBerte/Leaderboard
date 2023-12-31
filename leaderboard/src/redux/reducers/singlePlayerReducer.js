@@ -1,7 +1,7 @@
 //NB: reducer functions can't hold async operations (like fetching).
 //Therefore, async ops go into the action creators.
 
-import { REMOVE_PLAYER, ADD_NEW_PLAYER, INCREASE_PLAYER_SCORE, DECREASE_PLAYER_SCORE } from "../actions"
+import { REMOVE_PLAYER, ADD_NEW_PLAYER } from "../actions"
 
 const initialState = {
     content: [],

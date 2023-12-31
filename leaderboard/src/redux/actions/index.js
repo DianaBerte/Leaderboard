@@ -98,18 +98,33 @@ export const increasePlayerScore = (playerID) => {
                     payload: playerID,
                 });
             } else {
-                console.log("renderPlayersArray Error");
+                console.log("increasePlayerScore Error");
             }
         } catch (error) {
-            console.error("renderPlayersArray: ", error);
+            console.error("increasePlayerScore: ", error);
         };
     }
 };
 
 export const decreasePlayerScore = (playerID) => {
-    console.log("decreasePlayerScore playerID", playerID);
-    return {
-        type: DECREASE_PLAYER_SCORE,
-        payload: playerID,
+    return async (dispatch) => {
+        try {
+            const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                    Authorization: auth,
+                },
+            });
+            if (response.ok) {
+                dispatch({
+                    type: DECREASE_PLAYER_SCORE,
+                    payload: playerID,
+                });
+            } else {
+                console.log("decreasePlayerScore Error");
+            }
+        } catch (error) {
+            console.error("decreasePlayerScore: ", error);
+        };
     }
 }

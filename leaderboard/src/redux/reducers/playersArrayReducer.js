@@ -8,38 +8,44 @@ export const initialState = {
 
 const playersArrayReducer = (state = initialState, action) => {
     switch (action.type) {
-
         case RENDER_PLAYERS_ARRAY:
             return {
                 ...state,
-                content: action.payload,
-            };
-
-        case INCREASE_PLAYER_SCORE:
-            return {
-                ...state,
-                content: state.content.map((currentPlayer) => {
-                    if (currentPlayer._id === action.payload) {
-                        return { ...currentPlayer, score: currentPlayer.score + 10 };
-                    }
-                    return currentPlayer;
-                }),
+                players: {
+                    ...state.players,
+                    content: action.payload,
+                },
             };
 
         case DECREASE_PLAYER_SCORE:
             return {
                 ...state,
-                content: state.content.map((player) => {
-                    if (player.id === action.payload) {
-                        return { ...player, score: player.score - 10 };
-                    }
-                    return player;
-                })
+                players: {
+                    ...state.players,
+                    content: state.players.content.map((currentPlayer) =>
+                        currentPlayer._id === action.payload
+                            ? { ...currentPlayer, score: currentPlayer.score - 10 }
+                            : currentPlayer
+                    ),
+                },
+            };
+
+        case INCREASE_PLAYER_SCORE:
+            return {
+                ...state,
+                players: {
+                    ...state.players,
+                    content: state.players.content.map((currentPlayer) =>
+                        currentPlayer._id === action.payload
+                            ? { ...currentPlayer, score: currentPlayer.score + 10 }
+                            : currentPlayer
+                    ),
+                },
             };
 
         default:
-            return state
+            return state;
     }
-}
+};
 
 export default playersArrayReducer
