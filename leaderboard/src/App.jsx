@@ -117,7 +117,6 @@ export default function App() {
 
   const handleIncreaseScore = (playerID) => {
     dispatch(increasePlayerScore(playerID));
-    console.log("HHEEEEEEEEEEEEEEELLOOOOOOOOOOOO playerID: ", playerID)
   };
 
   const handleDecreaseScore = (playerID) => {

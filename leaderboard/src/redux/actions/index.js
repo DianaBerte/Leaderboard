@@ -84,14 +84,27 @@ export const removePlayer = (playerId) => {
 };
 
 export const increasePlayerScore = (playerID) => {
-    console.log("increasePlayerScore playerID", playerID);
     return async (dispatch) => {
-        dispatch({
-            type: INCREASE_PLAYER_SCORE,
-            payload: playerID,
-        });
-        dispatch(renderPlayersArray());
-    };
+        try {
+            const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                    Authorization: auth,
+                },
+            });
+            if (response.ok) {
+                dispatch({
+                    type: INCREASE_PLAYER_SCORE,
+                    payload: playerID,
+                });
+                // dispatch(renderPlayersArray());
+            } else {
+                console.log("renderPlayersArray Error");
+            }
+        } catch (error) {
+            console.error("renderPlayersArray: ", error);
+        };
+    }
 };
 
 export const decreasePlayerScore = (playerID) => {
