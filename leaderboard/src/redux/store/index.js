@@ -2,13 +2,15 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import singlePlayerReducer from '../reducers/singlePlayerReducer';
 import playersArrayReducer from '../reducers/playersArrayReducer';
 import addPlayerToAddedListReducer from '../reducers/addPlayerToAddedListReducer';
-import playerScoreReducer from '../reducers/playerScoreReducer';
+import increasePlayerScoreReducer from '../reducers/increasePlayerScoreReducer';
+import decreasePlayerScoreReducer from '../reducers/decreasePlayerScoreReducer';
 
 const store = configureStore({
     reducer: combineReducers({
         singlePlayer: singlePlayerReducer,
         players: playersArrayReducer,
-        playerScore: playerScoreReducer,
+        increasePlayerScore: increasePlayerScoreReducer,
+        decreasePlayerScore: decreasePlayerScoreReducer,
         addPlayerToAddedList: addPlayerToAddedListReducer,
     }),
 })
