@@ -3,7 +3,7 @@ export const REMOVE_PLAYER = 'REMOVE_PLAYER';
 export const RENDER_PLAYERS_ARRAY = 'RENDER_PLAYERS_ARRAY';
 export const ADD_PLAYER_TO_ADDED_LIST = 'ADD_PLAYER_TO_ADDED_LIST';
 export const INCREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE';
-export const DECREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE';
+export const DECREASE_PLAYER_SCORE = 'DECREASE_PLAYER_SCORE';
 
 export const url = "https://diana-be-3cf48a52853d.herokuapp.com/users";
 export const auth = process.env.REACT_APP_AUTH;
