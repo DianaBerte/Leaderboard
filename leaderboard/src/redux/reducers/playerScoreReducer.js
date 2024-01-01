@@ -1,4 +1,4 @@
-import { INCREASE_PLAYER_SCORE, DECREASE_PLAYER_SCORE } from "../actions/index";
+import { INCREASE_PLAYER_SCORE, DECREASE_PLAYER_SCORE, RENDER_PLAYERS_ARRAY } from "../actions/index";
 
 const initialState = {
     players: {
@@ -9,23 +9,43 @@ const initialState = {
 const playerScoreReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case DECREASE_PLAYER_SCORE:
-        case INCREASE_PLAYER_SCORE:
+        case RENDER_PLAYERS_ARRAY:
             return {
                 ...state,
                 players: {
                     ...state.players,
-                    content: state.players.content.map((currentPlayer) =>
-                        currentPlayer._id === action.payload
-                            ? {
-                                ...currentPlayer,
-                                score:
-                                    action.type === DECREASE_PLAYER_SCORE
-                                        ? currentPlayer.score - 10
-                                        : currentPlayer.score + 10,
-                            }
-                            : currentPlayer
-                    ),
+                    content: action.payload,
+                },
+            };
+
+        case DECREASE_PLAYER_SCORE:
+        case INCREASE_PLAYER_SCORE:
+            console.log("action.type: ", action.type);
+            console.log("action.payload: ", action.payload);
+
+            const updatedPlayers = state.players.content.map((currentPlayer) => {
+                console.log('currentPlayer._id:', currentPlayer._id);
+                console.log('action.payload.playerID:', action.payload.playerID);
+                if (currentPlayer._id === action.payload.playerID) {
+                    console.log("HELLO currentPlayer._id: ", currentPlayer._id);
+                    return {
+                        ...currentPlayer,
+                        score:
+                            action.type === DECREASE_PLAYER_SCORE
+                                ? currentPlayer.score - 10
+                                : currentPlayer.score + 10,
+                    };
+                }
+                return currentPlayer;
+            });
+
+            console.log("updatedPlayers: ", updatedPlayers);
+
+            return {
+                ...state,
+                players: {
+                    ...state.players,
+                    content: updatedPlayers,
                 },
             };
 
@@ -34,4 +54,4 @@ const playerScoreReducer = (state = initialState, action) => {
     }
 };
 
-export default playerScoreReducer
+export default playerScoreReducer;

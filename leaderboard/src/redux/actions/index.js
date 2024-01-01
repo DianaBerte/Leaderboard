@@ -83,48 +83,16 @@ export const removePlayer = (playerId) => {
     };
 };
 
-export const increasePlayerScore = (playerID) => {
-    return async (dispatch) => {
-        try {
-            const response = await fetch(url, {
-                method: "GET",
-                headers: {
-                    Authorization: auth,
-                },
-            });
-            if (response.ok) {
-                dispatch({
-                    type: INCREASE_PLAYER_SCORE,
-                    payload: playerID,
-                });
-            } else {
-                console.log("increasePlayerScore Error");
-            }
-        } catch (error) {
-            console.error("increasePlayerScore: ", error);
-        };
-    }
-};
+export const increasePlayerScore = (playerID) => ({
+    type: INCREASE_PLAYER_SCORE,
+    payload: {
+        playerID,
+    },
+});
 
-export const decreasePlayerScore = (playerID) => {
-    return async (dispatch) => {
-        try {
-            const response = await fetch(url, {
-                method: "GET",
-                headers: {
-                    Authorization: auth,
-                },
-            });
-            if (response.ok) {
-                dispatch({
-                    type: DECREASE_PLAYER_SCORE,
-                    payload: playerID,
-                });
-            } else {
-                console.log("decreasePlayerScore Error");
-            }
-        } catch (error) {
-            console.error("decreasePlayerScore: ", error);
-        };
-    }
-}
+export const decreasePlayerScore = (playerID) => ({
+    type: DECREASE_PLAYER_SCORE,
+    payload: {
+        playerID,
+    },
+});

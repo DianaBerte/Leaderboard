@@ -118,12 +118,12 @@ export default function App() {
 
   const handleIncreaseScore = (playerID) => {
     dispatch(increasePlayerScore(playerID));
-    console.log("handleIncreaseScore playerID:", playerID)
+    console.log("App.jsx increase playerID:", playerID)
   };
 
   const handleDecreaseScore = (playerID) => {
     dispatch(decreasePlayerScore(playerID));
-    console.log("handleDecreaseScore playerID:", playerID)
+    console.log("App.jsx decrease playerID:", playerID)
   };
 
   return (
