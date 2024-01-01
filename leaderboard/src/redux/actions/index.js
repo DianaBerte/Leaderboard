@@ -97,13 +97,14 @@ export const increasePlayerScore = (playerID) => {
                     type: INCREASE_PLAYER_SCORE,
                     payload: playerID,
                 });
+                console.log("dispatched INCREASE with playerID: ", playerID);
             } else {
                 console.log("increasePlayerScore Error");
             }
         } catch (error) {
             console.error("increasePlayerScore: ", error);
-        };
-    }
+        }
+    };
 };
 
 export const decreasePlayerScore = (playerID) => {
@@ -120,11 +121,12 @@ export const decreasePlayerScore = (playerID) => {
                     type: DECREASE_PLAYER_SCORE,
                     payload: playerID,
                 });
+                console.log("dispatched DECREASE with playerID: ", playerID);
             } else {
                 console.log("decreasePlayerScore Error");
             }
         } catch (error) {
             console.error("decreasePlayerScore: ", error);
-        };
-    }
-}
+        }
+    };
+};

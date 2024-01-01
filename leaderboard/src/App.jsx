@@ -17,7 +17,7 @@ export default function App() {
 
   useEffect(() => {
     dispatch(renderPlayersArray());
-    console.log("HEEEEEEEEEEELLO")
+    console.log("HEEEEEEEEEEELLO playersState: ", playersState)
   }, [dispatch]);
 
   const calculateScoreGap = (playerList) => {
@@ -34,6 +34,7 @@ export default function App() {
 
   useEffect(() => {
     if (playersState && playersState.content) {
+      console.log("HEEEEEEEEEEELLO playersState.content: ", playersState.content)
       const initialPlayers = [...playersState.content];
       const playersWithGap = calculateScoreGap(initialPlayers);
 
@@ -116,14 +117,14 @@ export default function App() {
     }
   };
 
-  const handleIncreaseScore = (playerID) => {
-    dispatch(increasePlayerScore(playerID));
-    console.log("increasing")
-  };
-
   const handleDecreaseScore = (playerID) => {
     dispatch(decreasePlayerScore(playerID));
     console.log("decreasing")
+  };
+
+  const handleIncreaseScore = (playerID) => {
+    dispatch(increasePlayerScore(playerID));
+    console.log("increasing")
   };
 
   return (
