@@ -60,11 +60,16 @@ const playerScoreReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case INCREASE_PLAYER_SCORE:
+        case DECREASE_PLAYER_SCORE:
+
             const updatedContent = state.players.content.map((currentPlayer) => {
                 if (currentPlayer._id === action.payload.playerID) {
                     return {
                         ...currentPlayer,
-                        score: currentPlayer.score + 10,
+                        score:
+                            action.type === DECREASE_PLAYER_SCORE
+                                ? currentPlayer.score - 10
+                                : currentPlayer.score + 10,
                     };
                 }
                 return currentPlayer;

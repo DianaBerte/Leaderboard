@@ -132,9 +132,20 @@ export default function App() {
     }
   };
 
-  const handleDecreaseScore = (playerID) => {
-    dispatch(decreasePlayerScore(playerID));
-    console.log("App.jsx decrease playerID:", playerID)
+  const handleDecreaseScore = async (playerID) => {
+    try {
+      const currentPlayer = playersState.content.find(player => player._id === playerID);
+      if (!currentPlayer) {
+        throw new Error("Player not found");
+      }  
+      const updatedScore = currentPlayer.score - 10;
+      const updatedData = { score: updatedScore };
+  
+      await dispatch(editPlayer(playerID, updatedData));
+      dispatch(renderPlayersArray());
+    } catch (error) {
+      console.error("handleDecreaseScore: ", error)
+    }
   };
 
   return (
