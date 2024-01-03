@@ -6,46 +6,75 @@ const initialState = {
     },
 };
 
+// const playerScoreReducer = (state = initialState, action) => {
+//     switch (action.type) {
+
+//         case RENDER_PLAYERS_ARRAY:
+//             return {
+//                 ...state,
+//                 players: {
+//                     ...state.players,
+//                     content: action.payload,
+//                 },
+//             };
+
+//         case DECREASE_PLAYER_SCORE:
+//         case INCREASE_PLAYER_SCORE:
+
+//             const updatedPlayers = state.players.content.map((currentPlayer) => {
+//                 if (currentPlayer._id === action.payload.playerID) {
+//                     return {
+//                         ...currentPlayer,
+//                         score:
+//                             action.type === DECREASE_PLAYER_SCORE
+//                                 ? currentPlayer.score - 10
+//                                 : currentPlayer.score + 10,
+//                     };
+//                 }
+//                 return currentPlayer;
+//             });
+
+//             const topPlayers = updatedPlayers.slice(0, 3);
+//             const otherPlayers = updatedPlayers.slice(3);
+
+//             console.log("updatedPlayers in reducer: ", updatedPlayers);
+
+//             return {
+//                 ...state,
+//                 players: {
+//                     ...state.players,
+//                     content: updatedPlayers,
+//                 },
+//                 topPlayers,
+//                 otherPlayers,
+//             };
+
+//         default:
+//             return state;
+//     }
+// };
+
+// export default playerScoreReducer;
+
 const playerScoreReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case RENDER_PLAYERS_ARRAY:
-            return {
-                ...state,
-                players: {
-                    ...state.players,
-                    content: action.payload,
-                },
-            };
-
-        case DECREASE_PLAYER_SCORE:
         case INCREASE_PLAYER_SCORE:
-            console.log("action.type: ", action.type);
-            console.log("action.payload: ", action.payload);
-
-            const updatedPlayers = state.players.content.map((currentPlayer) => {
-                console.log('currentPlayer._id:', currentPlayer._id);
-                console.log('action.payload.playerID:', action.payload.playerID);
+            const updatedContent = state.players.content.map((currentPlayer) => {
                 if (currentPlayer._id === action.payload.playerID) {
-                    console.log("HELLO currentPlayer._id: ", currentPlayer._id);
                     return {
                         ...currentPlayer,
-                        score:
-                            action.type === DECREASE_PLAYER_SCORE
-                                ? currentPlayer.score - 10
-                                : currentPlayer.score + 10,
+                        score: currentPlayer.score + 10,
                     };
                 }
                 return currentPlayer;
             });
 
-            console.log("updatedPlayers: ", updatedPlayers);
-
             return {
                 ...state,
                 players: {
                     ...state.players,
-                    content: updatedPlayers,
+                    content: updatedContent,
                 },
             };
 

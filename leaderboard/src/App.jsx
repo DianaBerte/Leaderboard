@@ -4,7 +4,7 @@ import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPlayer, increasePlayerScore, decreasePlayerScore, renderPlayersArray, removePlayer } from './redux/actions/index.js';
+import { addPlayer, increasePlayerScore, decreasePlayerScore, renderPlayersArray, removePlayer, editPlayer } from './redux/actions/index.js';
 
 export default function App() {
 
@@ -116,9 +116,20 @@ export default function App() {
     }
   };
 
-  const handleIncreaseScore = (playerID) => {
-    dispatch(increasePlayerScore(playerID));
-    console.log("App.jsx increase playerID:", playerID)
+  const handleIncreaseScore = async (playerID) => {
+    try {
+      const currentPlayer = playersState.content.find(player => player._id === playerID);
+      if (!currentPlayer) {
+        throw new Error("Player not found");
+      }  
+      const updatedScore = currentPlayer.score + 10;
+      const updatedData = { score: updatedScore };
+  
+      await dispatch(editPlayer(playerID, updatedData));
+      dispatch(renderPlayersArray());
+    } catch (error) {
+      console.error("handleIncreaseScore: ", error)
+    }
   };
 
   const handleDecreaseScore = (playerID) => {

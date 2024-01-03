@@ -59,6 +59,35 @@ export const addPlayer = (player) => {
     };
 };
 
+export const editPlayer = (playerId, updatedData) => {
+    return async (dispatch) => {
+        try {
+            const response = await fetch(`${url}/${playerId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: auth,
+                },
+                body: JSON.stringify(updatedData),
+            });
+
+            if (!response.ok) {
+                throw new Error("editPlayer() error");
+            }
+
+            const modifiedPlayer = await response.json();
+            dispatch({
+                type: INCREASE_PLAYER_SCORE,
+                payload: modifiedPlayer,
+            });
+            return modifiedPlayer;
+        } catch (error) {
+            console.error("editPlayer() error: ", error);
+            throw error;
+        }
+    };
+};
+
 export const removePlayer = (playerId) => {
     return async (dispatch) => {
         try {
@@ -83,12 +112,16 @@ export const removePlayer = (playerId) => {
     };
 };
 
-export const increasePlayerScore = (playerID) => ({
-    type: INCREASE_PLAYER_SCORE,
-    payload: {
-        playerID,
-    },
-});
+export const increasePlayerScore = (playerID) => {
+    return (dispatch) => {
+        dispatch({
+            type: INCREASE_PLAYER_SCORE,
+            payload: {
+                playerID,
+            },
+        });
+    };
+};
 
 export const decreasePlayerScore = (playerID) => ({
     type: DECREASE_PLAYER_SCORE,
