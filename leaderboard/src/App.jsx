@@ -116,35 +116,28 @@ export default function App() {
     }
   };
 
-  const handleIncreaseScore = async (playerID) => {
+  const handleScoreUpdate = async (playerID, actionType) => {
     try {
       const currentPlayer = playersState.content.find(player => player._id === playerID);
       if (!currentPlayer) {
         throw new Error("Player not found");
       }  
-      const updatedScore = currentPlayer.score + 10;
+  
+      let updatedScore;
+      if (actionType === 'increase') {
+        updatedScore = currentPlayer.score + 10;
+      } else if (actionType === 'decrease') {
+        updatedScore = currentPlayer.score - 10;
+      } else {
+        throw new Error("Invalid action type");
+      }
+  
       const updatedData = { score: updatedScore };
   
       await dispatch(editPlayer(playerID, updatedData));
       dispatch(renderPlayersArray());
     } catch (error) {
-      console.error("handleIncreaseScore: ", error)
-    }
-  };
-
-  const handleDecreaseScore = async (playerID) => {
-    try {
-      const currentPlayer = playersState.content.find(player => player._id === playerID);
-      if (!currentPlayer) {
-        throw new Error("Player not found");
-      }  
-      const updatedScore = currentPlayer.score - 10;
-      const updatedData = { score: updatedScore };
-  
-      await dispatch(editPlayer(playerID, updatedData));
-      dispatch(renderPlayersArray());
-    } catch (error) {
-      console.error("handleDecreaseScore: ", error)
+      console.error("handleScoreUpdate: ", error)
     }
   };
 
@@ -236,9 +229,9 @@ export default function App() {
                               </svg>
                             </div>
                             
-                            <button onClick={() => handleDecreaseScore(player._id)} ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
+                            <button onClick={() => handleScoreUpdate(player._id, 'decrease')} ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
                               <span className='text-sm font-medium uppercase'>score</span>
-                               <button onClick={() => handleIncreaseScore(player._id)}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
+                               <button onClick={() => handleScoreUpdate(player._id, 'increase')}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 18" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" /></svg></button>
                                   <div className='text-sm font-medium'>
                                     {player.gap !== undefined ? (
                                       <span>GAP: {player.gap !== null ? `${player.gap}pt` : `No one above me!`}</span>
