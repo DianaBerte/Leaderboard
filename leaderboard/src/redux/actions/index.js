@@ -111,21 +111,3 @@ export const removePlayer = (playerId) => {
         }
     };
 };
-
-export const increasePlayerScore = (playerID) => {
-    return (dispatch) => {
-        dispatch({
-            type: INCREASE_PLAYER_SCORE,
-            payload: {
-                playerID,
-            },
-        });
-    };
-};
-
-export const decreasePlayerScore = (playerID) => ({
-    type: DECREASE_PLAYER_SCORE,
-    payload: {
-        playerID,
-    },
-});

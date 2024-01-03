@@ -4,7 +4,7 @@ import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPlayer, increasePlayerScore, decreasePlayerScore, renderPlayersArray, removePlayer, editPlayer } from './redux/actions/index.js';
+import { addPlayer, renderPlayersArray, removePlayer, editPlayer } from './redux/actions/index.js';
 
 export default function App() {
 
@@ -69,44 +69,6 @@ export default function App() {
       console.error("handleAddPlayer error:", error);
     }
   };
-
-  // const handleIncreaseScore = (playerID) => {
-  //   setPlayers((prevPlayers) => {
-  //     const updatedPlayers = prevPlayers.map((player) => {
-  //       if (player.id === playerID) {
-  //         return {...player, score: player.score + 10};
-  //       }
-  //       return player;
-  //     });
-  //     const topPlayers = updatedPlayers.slice(0, 3);
-  //     const otherPlayers = updatedPlayers.slice(3);
-
-  //     setTopPlayers(topPlayers);
-  //     setOtherPlayers(otherPlayers);
-
-  //     return updatedPlayers;
-  //   });
-  // };
-
-  // const handleDecreaseScore = (playerID) => {
-  //   setPlayers((prevPlayers) => {
-  //     const updatedPlayers = prevPlayers.map((player) => {
-  //       if (player.id === playerID) {
-  //         return {...player, score: player.score - 10};
-  //       }
-  //       return player;
-  //     });
-  //     const topPlayers = updatedPlayers.slice(0, 3);
-  //     const otherPlayers = updatedPlayers.slice(3);
-
-  //     setTopPlayers(topPlayers);
-  //     setOtherPlayers(otherPlayers);
-
-  //     return updatedPlayers;
-  //   });
-  // };
-
-  //move functions to reducer; otherPlayers must be passed to PlayerAdded after the modifications
 
   const handleRemovePlayer = async (playerId) => {
     try {
