@@ -9,6 +9,22 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
     const imageUrls = [
         'https://res.cloudinary.com/degg5zebq/image/upload/v1696758943/Game%20characters/Game_character_5_ic6mq6.png',
         'https://res.cloudinary.com/degg5zebq/image/upload/v1696758941/Game%20characters/Game_character_3_k9imdp.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362644/Game%20characters/Game_character_14_xccf14.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362644/Game%20characters/Game_character_16_y7eytr.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362644/Game%20characters/Game_character_19_yvbvwf.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362644/Game%20characters/Game_character_18_vfnfwy.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362644/Game%20characters/Game_character_15_u3zwcn.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362645/Game%20characters/Game_character_17_hvn3fy.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362645/Game%20characters/Game_character_11_huyyuf.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362645/Game%20characters/Game_character_13_pinodr.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362645/Game%20characters/Game_character_12_oosl0t.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362645/Game%20characters/Game_character_10_dde3b8.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362645/Game%20characters/Game_character_9_rtgeio.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362646/Game%20characters/Game_character_8_xchyer.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362646/Game%20characters/Game_character_7_k5iy7p.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362647/Game%20characters/Game_character_6_1_clu15v.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362647/Game%20characters/Game_character_6_jof8b7.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362647/Game%20characters/Game_character_6_jof8b7.png'
     ];
 
     const getRandomImage = () => {
