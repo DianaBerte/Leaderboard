@@ -4,6 +4,7 @@ export const RENDER_PLAYERS_ARRAY = 'RENDER_PLAYERS_ARRAY';
 export const ADD_PLAYER_TO_ADDED_LIST = 'ADD_PLAYER_TO_ADDED_LIST';
 export const INCREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE';
 export const DECREASE_PLAYER_SCORE = 'DECREASE_PLAYER_SCORE';
+export const EDIT_PLAYER_INFO = 'EDIT_PLAYER_INFO';
 
 export const url = "https://diana-be-3cf48a52853d.herokuapp.com/users";
 export const auth = process.env.REACT_APP_AUTH;
@@ -59,7 +60,7 @@ export const addPlayer = (player) => {
     };
 };
 
-export const editPlayer = (playerId, updatedData) => {
+export const editPlayerScore = (playerId, updatedData) => {
     return async (dispatch) => {
         try {
             const response = await fetch(`${url}/${playerId}`, {
@@ -72,7 +73,7 @@ export const editPlayer = (playerId, updatedData) => {
             });
 
             if (!response.ok) {
-                throw new Error("editPlayer() error");
+                throw new Error("editPlayerScore() error");
             }
 
             const modifiedPlayer = await response.json();
@@ -82,11 +83,39 @@ export const editPlayer = (playerId, updatedData) => {
             });
             return modifiedPlayer;
         } catch (error) {
-            console.error("editPlayer() error: ", error);
+            console.error("editPlayerScore() error: ", error);
             throw error;
         }
     };
 };
+
+export const editPlayerInfo = (playerId, updatedData) => {
+    return async (dispatch) => {
+        try {
+            const response = await fetch(`${url}/${playerId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: auth,
+                },
+                body: JSON.stringify(updatedData),
+            });
+
+            if (!response.ok) {
+                throw new Error("editPlayerInfo() error");
+            }
+            const modifiedPlayer = await response.json();
+            dispatch({
+                type: EDIT_PLAYER_INFO,
+                payload: modifiedPlayer,
+            });
+            return modifiedPlayer;
+        } catch (error) {
+            console.error("editPlayerInfo() error: ", error);
+            throw error;
+        }
+    }
+}
 
 export const removePlayer = (playerId) => {
     return async (dispatch) => {

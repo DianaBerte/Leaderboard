@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import 'tailwindcss/tailwind.css';
+import { motion } from "framer-motion";
 import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPlayer, renderPlayersArray, removePlayer, editPlayer } from './redux/actions/index.js';
+import { addPlayer, renderPlayersArray, removePlayer, editPlayerScore } from './redux/actions/index.js';
 
 export default function App() {
 
@@ -102,7 +103,7 @@ export default function App() {
   
       const updatedData = { score: updatedScore };
   
-      await dispatch(editPlayer(playerID, updatedData));
+      await dispatch(editPlayerScore(playerID, updatedData));
       dispatch(renderPlayersArray());
     } catch (error) {
       console.error("handleScoreUpdate: ", error)

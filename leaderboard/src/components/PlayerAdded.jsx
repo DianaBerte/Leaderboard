@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { removePlayer, editPlayer, renderPlayersArray } from "../redux/actions";
+import { removePlayer, editPlayerScore, renderPlayersArray } from "../redux/actions";
 
 const PlayerAdded = ({otherPlayers}) => {
     const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const handleScoreUpdate = async (playerID, actionType) => {
       
         const updatedData = { score: updatedScore };
       
-        await dispatch(editPlayer(playerID, updatedData));
+        await dispatch(editPlayerScore(playerID, updatedData));
         dispatch(renderPlayersArray());
     } catch (error) {
         console.error("handleScoreUpdate: ", error)
