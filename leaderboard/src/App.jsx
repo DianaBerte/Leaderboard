@@ -48,7 +48,13 @@ export default function App() {
 
   const handleAddPlayer = async (player) => {
     try {
-      const addedPlayer = await dispatch(addPlayer(player));
+      const playerWithImg = {
+        name: player.name,
+        score: player.score,
+        image: player.image,
+      }
+
+      const addedPlayer = await dispatch(addPlayer(playerWithImg));
       dispatch(renderPlayersArray());
   
       setPlayers((prevPlayers) => {

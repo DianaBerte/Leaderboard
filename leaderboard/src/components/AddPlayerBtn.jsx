@@ -6,9 +6,20 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
     const [playerName, setPlayerName] = useState('');
     const [playerScore, setPlayerScore] = useState('');
 
+    const imageUrls = [
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1696758943/Game%20characters/Game_character_5_ic6mq6.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1696758941/Game%20characters/Game_character_3_k9imdp.png',
+    ];
+
+    const getRandomImage = () => {
+        const randomIndex = Math.floor(Math.random() * imageUrls.length);
+        return imageUrls[randomIndex];
+    };
+
     const handleAdd = () => {
         if(playerName !== '' && !isNaN(playerScore) && playerScore !== '') {
-        const newPlayer = { name: playerName, score: Number(playerScore)};
+        const randomImageUrl = getRandomImage();
+        const newPlayer = { name: playerName, score: Number(playerScore), image: randomImageUrl};
         handleAddPlayer(newPlayer);
         setShowForm(false);
         setPlayerName('');

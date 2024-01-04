@@ -1,4 +1,3 @@
-//handleIncrease & handleDecrease are not defined
 import { useDispatch, useSelector } from "react-redux";
 import { removePlayer, editPlayer, renderPlayersArray } from "../redux/actions";
 
