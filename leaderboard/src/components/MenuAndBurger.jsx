@@ -10,7 +10,7 @@ const MenuAndBurger = () => {
 
     return (
         <>
-        <div className='md:col-span-1 md:flex md:justify-end'>
+        <div className='md:col-span-1 md:flex md:justify-end '>
           <nav className='text-right'>
             <div className='flex justify-between items-center'>
               <div className='px-4 cursor-pointer md:hidden' id='burger' onClick={toggleMenu}> {/* from md up: hidden */}

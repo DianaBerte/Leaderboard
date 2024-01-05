@@ -1,3 +1,6 @@
+
+
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { removePlayer, editPlayerScore, renderPlayersArray } from "../redux/actions";
 
@@ -41,7 +44,10 @@ const handleScoreUpdate = async (playerID, actionType) => {
     return(
         <>
         {otherPlayers.map((player, index) => (
-            <div key={player.id}>
+            <motion.div key={player._id}
+            whileHover={{ scale: 1.05, cursor: 'pointer' }}
+                  transition={{ duration: 0.5 }}
+                  >
                 <div className='mb-6 py-4 px-4 text-white bg-secondary rounded overflow-hidden shadow-lg shadow-cyan-500 flex items-center justify-between'>
                     <div className='flex items-center'>
                         <span className='text-2xl font-extrabold text-fourth rounded-full animate-pulse'>{index + 4}</span>
@@ -60,7 +66,7 @@ const handleScoreUpdate = async (playerID, actionType) => {
                         </button>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         ))}
         </>
     )
