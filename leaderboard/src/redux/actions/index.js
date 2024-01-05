@@ -102,7 +102,8 @@ export const editPlayerInfo = (playerId, updatedData) => {
             });
 
             if (!response.ok) {
-                throw new Error("editPlayerInfo() error");
+                const errorResponse = await response.json();
+                throw new Error(`editPlayerInfo() error: ${errorResponse.message}`);
             }
             const modifiedPlayer = await response.json();
             dispatch({
@@ -128,7 +129,9 @@ export const removePlayer = (playerId) => {
                 },
             });
             if (!response.ok) {
-                throw new Error("Failed to delete player");
+                console.log("playerId in removePlayer:", playerId)
+                const errorResponse = await response.json();
+                throw new Error(`removePlayer() error: ${errorResponse.message}`);
             }
             dispatch({
                 type: REMOVE_PLAYER,

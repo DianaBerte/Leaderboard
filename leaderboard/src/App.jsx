@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
+import EditPlayerModal from './components/EditPlayerModal.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPlayer, renderPlayersArray, removePlayer, editPlayerScore } from './redux/actions/index.js';
+import { addPlayer, renderPlayersArray, removePlayer, editPlayerScore, editPlayerInfo } from './redux/actions/index.js';
 
 export default function App() {
 
@@ -15,6 +16,14 @@ export default function App() {
   const [players, setPlayers] = useState([]);
   const [topPlayers, setTopPlayers] = useState([]);
   const [otherPlayers, setOtherPlayers] = useState([]);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [itShows, setItShows] = useState(false);
+
+  const handleClickOnCard = () => {
+    setIsOpen(!isOpen);
+    setItShows(!itShows);
+  };
 
   useEffect(() => {
     dispatch(renderPlayersArray());
@@ -47,7 +56,7 @@ export default function App() {
     }
   }, [playersState]);
 
-  const handleAddPlayer = async (player) => {
+    const handleAddPlayer = async (player) => {
     try {
       const playerWithImg = {
         name: player.name,
@@ -166,10 +175,14 @@ export default function App() {
 
             <div className='mt-8 pb-10 border-cyan-400 grid xl:grid-cols-3 lg:grid-cols-1 gap-20 md:gap-x-80 border-b'>
 
-              {/* rendering the cards dinamically based on the players sorted by score */}
+              {/* rendering the cards dynamically based on the players sorted by score */}
               {topPlayers.length > 0 ? (
                 topPlayers.map((player, index) => (
-                  <div key={player._id} className="bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative lg:w-72 md:w-auto">
+                  <motion.div key={player._id} className={`bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative lg:w-72 md:w-auto ${isOpen ? 'open-card' : ''}`}
+                  onClick={handleClickOnCard}
+                  whileHover={{ scale: 1.08, cursor: 'pointer' }}
+                  transition={{ duration: 0.5 }}
+                  >
                     {player.image && (
                       <img className='w-full h-32 sm:h-48 object-cover rounded' src={player.image} alt='character img'></img>
                         )}
@@ -197,6 +210,8 @@ export default function App() {
                                   <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
                               </svg>
                             </div>
+
+                            {/* <EditPlayerModal player={playersState.content} itShows={itShows} setItShows={setItShows} /> */}
                             
                             <button onClick={() => handleScoreUpdate(player._id, 'decrease')} ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
                               <span className='text-sm font-medium uppercase'>score</span>
@@ -217,7 +232,7 @@ export default function App() {
                                   <svg className="mb-2 w-20 h-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" ><path clipRule="evenodd" fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" /></svg>
                                 </button>
                               </div>
-                          </div>
+                          </motion.div>
                         ))
               ) : (
                 <h3>Loading players...</h3>

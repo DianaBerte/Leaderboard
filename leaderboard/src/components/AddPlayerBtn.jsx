@@ -22,10 +22,10 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
         'https://res.cloudinary.com/degg5zebq/image/upload/v1704362645/Game%20characters/Game_character_9_rtgeio.png',
         'https://res.cloudinary.com/degg5zebq/image/upload/v1704362646/Game%20characters/Game_character_8_xchyer.png',
         'https://res.cloudinary.com/degg5zebq/image/upload/v1704362646/Game%20characters/Game_character_7_k5iy7p.png',
-        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362647/Game%20characters/Game_character_6_1_clu15v.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704454579/Game%20characters/Game_character_21_meusej.png',
         'https://res.cloudinary.com/degg5zebq/image/upload/v1704362647/Game%20characters/Game_character_6_jof8b7.png',
-        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362647/Game%20characters/Game_character_6_jof8b7.png'
-    ];
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362647/Game%20characters/Game_character_6_jof8b7.png',
+];
 
     const getRandomImage = () => {
         const randomIndex = Math.floor(Math.random() * imageUrls.length);
