@@ -23,6 +23,8 @@ export default function App() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [animateIncrease, setAnimateIncrease] = useState(false);
+
   const controls = useAnimation();
 
   // const handleClickOnCard = () => {
@@ -108,6 +110,7 @@ export default function App() {
       let updatedScore;
       if (actionType === 'increase') {
         updatedScore = currentPlayer.score + 10;
+        setAnimateIncrease(true);
       } else if (actionType === 'decrease') {
         updatedScore = currentPlayer.score - 10;
       } else {
@@ -118,10 +121,21 @@ export default function App() {
   
       await dispatch(editPlayerScore(playerID, updatedData));
       dispatch(renderPlayersArray());
+
     } catch (error) {
       console.error("handleScoreUpdate: ", error)
     }
   };
+
+  useEffect(() => {
+    if (animateIncrease) {
+      console.log("Animation started!");
+      const timeout = setTimeout(() => {
+        setAnimateIncrease(false);
+      }, 2000); 
+      return () => clearTimeout(timeout);
+    }
+  }, [animateIncrease]);
 
   return (
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
@@ -204,7 +218,7 @@ export default function App() {
                                   </div>
                               </div>
 
-                              <StarsAnimation currentIndex={currentIndex}/>
+                              {animateIncrease && <StarsAnimation />}
 
                             {/* <EditPlayerModal player={playersState.content} itShows={itShows} setItShows={setItShows} /> */}
                             
