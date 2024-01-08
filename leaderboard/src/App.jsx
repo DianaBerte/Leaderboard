@@ -135,7 +135,7 @@ export default function App() {
       // console.log("HEEEEELLOOO playerIdToUpdate: ", playerIdToUpdate);
       timeout = setTimeout(() => {
         setPlayerIdToUpdate(null);
-      }, 2000); 
+      }, 2400); 
       return () => clearTimeout(timeout);
     }
   }, [playerIdToUpdate]);
