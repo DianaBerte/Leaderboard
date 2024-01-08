@@ -1,5 +1,3 @@
-
-
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { removePlayer, editPlayerScore, renderPlayersArray } from "../redux/actions";

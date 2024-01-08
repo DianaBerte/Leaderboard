@@ -54,17 +54,21 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
             </div>
             
             {showForm && (
-                <div className="form-container">
-                    <label>
-                        Player Name:
+                    <div className="flex justify-center items-center">
+                    <div className="bg-fourth shadow-cyan-500 text-secondary animate-pulse rounded-lg p-8 shadow-md">
+                      <div className="mb-4">
+                        <label htmlFor="playerName" className="block font-bold mb-1">Player Name:</label>
                         <input
-                        type="text"
-                        value={playerName}
-                        onChange={(e) => setPlayerName(e.target.value)}
-                        placeholder="Player Name"
-                        ></input>
-                    </label>
-                    <label>
+                          type="text"
+                          id="playerName"
+                          value={playerName}
+                          onChange={(e) => setPlayerName(e.target.value)}
+                          placeholder="Enter Player Name"
+                          className="w-full p-2 border border-gray-300 rounded"
+                        />
+                      </div>
+                      <div className="mb-4">
+                      <label>
                         Player Score:
                         <input
                         type="number"
@@ -73,8 +77,12 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
                         placeholder="Player Score"
                         ></input>
                     </label>
-                    <button onClick={handleAdd}>Submit</button>
-                </div>
+                      </div>
+                      <button className="w-full hover:bg-secondary bg-third text-white font-bold py-2 px-4 rounded focus:outline-none focus:bg-blue-600" onClick={handleAdd}>
+                        Submit
+                      </button>
+                    </div>
+                  </div>
            )}  
         </>
     );
