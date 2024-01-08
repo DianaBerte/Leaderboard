@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import 'tailwindcss/tailwind.css';
+import Lottie from 'lottie-react';
 import { motion, useAnimation } from "framer-motion";
 import MenuAndBurger from './components/MenuAndBurger.jsx';
 import PlayerAdded from './components/PlayerAdded.jsx';
 import AddPlayerBtn from './components/AddPlayerBtn.jsx';
-import EditPlayerModal from './components/EditPlayerModal.jsx';
+import parrot from './parrot.json';
 import StarsAnimation from './components/StarsAnimation.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPlayer, renderPlayersArray, removePlayer, editPlayerScore, editPlayerInfo } from './redux/actions/index.js';
+import { addPlayer, renderPlayersArray, removePlayer, editPlayerScore } from './redux/actions/index.js';
 
 export default function App() {
 
@@ -17,21 +18,10 @@ export default function App() {
   const [players, setPlayers] = useState([]);
   const [topPlayers, setTopPlayers] = useState([]);
   const [otherPlayers, setOtherPlayers] = useState([]);
-
-  const [isOpen, setIsOpen] = useState(false);
-  // const [itShows, setItShows] = useState(false);
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const [animateIncrease, setAnimateIncrease] = useState(false);
   const [playerIdToUpdate, setPlayerIdToUpdate] = useState(null);
+  const [showParrot, setShowParrot] = useState(false);
 
   const controls = useAnimation();
-
-  // const handleClickOnCard = () => {
-  //   setIsOpen(!isOpen);
-  //   setItShows(!itShows);
-  // };
 
   useEffect(() => {
     dispatch(renderPlayersArray());
@@ -109,10 +99,21 @@ export default function App() {
       }  
   
       let updatedScore;
+
       if (actionType === 'increase') {
         updatedScore = currentPlayer.score + 10;
-        // setAnimateIncrease(true);
         setPlayerIdToUpdate(playerID);
+
+        const milestones = [300, 400, 500, 600];
+        milestones.forEach(milestone => {
+          if (updatedScore >= milestone && currentPlayer.score < milestone ) {
+            setShowParrot(true);
+            setTimeout(() => {
+              setShowParrot(false);
+            }, 1500);
+          }
+        });
+
       } else if (actionType === 'decrease') {
         updatedScore = currentPlayer.score - 10;
       } else {
@@ -132,7 +133,6 @@ export default function App() {
   useEffect(() => {
     let timeout;
     if (playerIdToUpdate) {
-      // console.log("HEEEEELLOOO playerIdToUpdate: ", playerIdToUpdate);
       timeout = setTimeout(() => {
         setPlayerIdToUpdate(null);
       }, 2400); 
@@ -141,7 +141,15 @@ export default function App() {
   }, [playerIdToUpdate]);
 
   return (
+    <>
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
+
+        
+{showParrot &&
+      <div style={{width: "50%"}}>
+        <Lottie animationData={parrot} width={200}  />
+      </div>
+      }
 
       <div className='grid md:grid-cols-4'>{/* content wrapper */}
 
@@ -179,7 +187,6 @@ export default function App() {
           </nav>
         </div>
 
-
         <div className='px-16 py-6 md:col-span-2'>{/* main content wrapper */}
           <div className='flex justify-center md:justify-end'>
             <button className='rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider border-primary md:border-2 hover:bg-fourth hover:text-cyan-900 transition-all'>Log in</button>
@@ -199,8 +206,7 @@ export default function App() {
               {/* rendering the cards dynamically based on the players sorted by score */}
               {topPlayers.length > 0 ? (
                 topPlayers.map((player, index) => (
-                  <motion.div key={player._id} className={`bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative lg:w-72 md:w-auto ${isOpen ? 'open-card' : ''}`}
-                  // onClick={handleClickOnCard}
+                  <motion.div key={player._id} className={`bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative lg:w-72 md:w-auto`}
                   whileHover={{ scale: 1.08, cursor: 'pointer' }}
                   transition={{ duration: 0.5 }}
                   animate={controls}
@@ -222,8 +228,6 @@ export default function App() {
                               </div>
 
                               <StarsAnimation playerID={player._id} playerIdToUpdate={playerIdToUpdate} />
-
-                            {/* <EditPlayerModal player={playersState.content} itShows={itShows} setItShows={setItShows} /> */}
                             
                             <button onClick={() => handleScoreUpdate(player._id, 'decrease')} ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 16" strokeWidth={5.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6"/></svg></button>
                               <span className='text-sm font-medium uppercase'>score</span>
@@ -260,4 +264,5 @@ export default function App() {
         </div>{/* main content wrapper */}
       </div>
     </div>
+    </>
 )}
