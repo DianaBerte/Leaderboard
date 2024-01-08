@@ -24,6 +24,7 @@ export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [animateIncrease, setAnimateIncrease] = useState(false);
+  const [playerIdToUpdate, setPlayerIdToUpdate] = useState(null);
 
   const controls = useAnimation();
 
@@ -110,7 +111,8 @@ export default function App() {
       let updatedScore;
       if (actionType === 'increase') {
         updatedScore = currentPlayer.score + 10;
-        setAnimateIncrease(true);
+        // setAnimateIncrease(true);
+        setPlayerIdToUpdate(playerID);
       } else if (actionType === 'decrease') {
         updatedScore = currentPlayer.score - 10;
       } else {
@@ -128,14 +130,15 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (animateIncrease) {
-      console.log("Animation started!");
-      const timeout = setTimeout(() => {
-        setAnimateIncrease(false);
+    let timeout;
+    if (playerIdToUpdate) {
+      // console.log("HEEEEELLOOO playerIdToUpdate: ", playerIdToUpdate);
+      timeout = setTimeout(() => {
+        setPlayerIdToUpdate(null);
       }, 2000); 
       return () => clearTimeout(timeout);
     }
-  }, [animateIncrease]);
+  }, [playerIdToUpdate]);
 
   return (
     <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}
@@ -218,7 +221,7 @@ export default function App() {
                                   </div>
                               </div>
 
-                              {animateIncrease && <StarsAnimation />}
+                              <StarsAnimation playerID={player._id} playerIdToUpdate={playerIdToUpdate} />
 
                             {/* <EditPlayerModal player={playersState.content} itShows={itShows} setItShows={setItShows} /> */}
                             
