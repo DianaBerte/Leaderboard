@@ -2,9 +2,6 @@ import {motion } from 'framer-motion';
 
 const StarsAnimation = ({playerID, playerIdToUpdate}) => {
 
-    console.log("starsAnimation playerID: ", playerID)
-    console.log("starsAnimation playerIdToUpdate: ", playerIdToUpdate)
-
     return (
         <>
         <div className='flex'>{/* stars */}

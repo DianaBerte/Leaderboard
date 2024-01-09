@@ -135,7 +135,7 @@ export default function App() {
     if (playerIdToUpdate) {
       timeout = setTimeout(() => {
         setPlayerIdToUpdate(null);
-      }, 2400); 
+      }, 1200); 
       return () => clearTimeout(timeout);
     }
   }, [playerIdToUpdate]);
@@ -149,7 +149,7 @@ export default function App() {
       </div>
       }
 
-      <div className='grid md:grid-cols-4'>{/* content wrapper */}
+      <div className='grid md:grid-cols-5'>{/* content wrapper */}
 
       <div className='md:col-span-1 md:flex md:justify-end'>
           <nav className='text-right'>
@@ -199,16 +199,17 @@ export default function App() {
           <div>{/* cards wrapper */}
             <h4 className='flex items-center justify-center text-4xl font-extrabold mt-8'>Winners</h4>
 
-            <div className='mt-8 pb-10 border-cyan-400 grid xl:grid-cols-3 lg:grid-cols-1 gap-20 md:gap-x-80 border-b'>
+            <div className='mt-8 pb-10 border-cyan-400 grid xl:grid-cols-3 lg:grid-cols-1 gap-20 md:gap-x-80'>
 
               {/* rendering the cards dynamically based on the players sorted by score */}
               {topPlayers.length > 0 ? (
                 topPlayers.map((player, index) => (
                   <motion.div key={player._id} className={`bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative lg:w-72 md:w-auto`}
-                  whileHover={{ scale: 1.08, cursor: 'pointer' }}
+                  whileHover={{ scale: 1.15, cursor: 'pointer' }}
                   transition={{ duration: 0.5 }}
                   animate={controls}
                   initial="hidden"
+                  style={{ margin: '0px'}}
                   >
                     {player.image && (
                       <img className='w-full h-32 sm:h-48 object-cover rounded' src={player.image} alt='character img'></img>
@@ -216,7 +217,7 @@ export default function App() {
                           <div className='m-4 text-secondary'>
                           <div className="flex items-center">
                             {player.name && (
-                              <div className='text-2xl font-extrabold animate-pulse'>{player.name}</div>
+                              <div className='text-lg font-extrabold animate-pulse'>{player.name}</div>
                               )}
                               <div className='bg-fourth text-secondary font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>
                                 {player.score && (
@@ -240,13 +241,13 @@ export default function App() {
                             </div>
                             <motion.div
                               key={index}
-                              className='bg-third text-white text-6xl animate-bounce font-extrabold w-20 rounded-full p-3 absolute top-0 ml-3 mt-8'
+                              className='bg-third text-white text-4xl animate-bounce font-extrabold w-16 rounded-full p-3 absolute top-0 ml-3 mt-8'
                             >
                               <div className='flex items-center justify-center'>{index + 1}</div>
                             </motion.div>
                               <div className='flex justify-end'>
                                 <button onClick={() => handleRemovePlayer(player._id)}>
-                                  <svg className="mb-2 w-20 h-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" ><path clipRule="evenodd" fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" /></svg>
+                                  <svg className="mb-0 w-12 h-12 transform transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red" ><path clipRule="evenodd" fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" /></svg>
                                 </button>
                               </div>
                           </motion.div>

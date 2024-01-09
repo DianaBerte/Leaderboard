@@ -43,8 +43,9 @@ const handleScoreUpdate = async (playerID, actionType) => {
         <>
         {otherPlayers.map((player, index) => (
             <motion.div key={player._id}
-            whileHover={{ scale: 1.05, cursor: 'pointer' }}
+            whileHover={{ scale: 1.1, cursor: 'pointer' }}
                   transition={{ duration: 0.5 }}
+                  style={{ width: '600px'}}
                   >
                 <div className='mb-6 py-4 px-4 text-white bg-secondary rounded overflow-hidden shadow-lg shadow-cyan-500 flex items-center justify-between'>
                     <div className='flex items-center'>
@@ -57,8 +58,8 @@ const handleScoreUpdate = async (playerID, actionType) => {
                     </div>
                     <div className='flex items-center'>
                         <span className='text-md font-medium ml-4'>GAP: {player.gap}pt</span>
-                        <button onClick={() => handleRemovePlayer(player._id)} className='ml-4'>
-                            <svg className="text-align-end w-20 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red">
+                        <button onClick={() => handleRemovePlayer(player._id)} className='ml-4 transform transition-transform hover:scale-110'>
+                            <svg className="text-align-end w-20 h-8 transform transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="red">
                             <path clipRule="evenodd" fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" />
                             </svg>
                         </button>
