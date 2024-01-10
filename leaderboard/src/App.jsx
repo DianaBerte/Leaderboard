@@ -142,16 +142,16 @@ export default function App() {
 
   return (
     <>
-    <div className="bg-cyan-900 min-h-screen text-primary">{/* body */}        
-{showParrot &&
-      <div style={{width: "50%"}}>
-        <Lottie animationData={parrot} width={200}  />
-      </div>
+    <div className="bg-cyan-900 min-h-screen min-w-full text-primary">{/* body */}        
+      {showParrot &&
+        <div style={{width: "50%"}}>
+          <Lottie animationData={parrot} width={200}  />
+        </div>
       }
 
-      <div className='grid md:grid-cols-5'>{/* content wrapper */}
+      <div className='grid xl:grid-cols-5 md:grid-cols-4'>{/* content wrapper */}
 
-      <div className='md:col-span-1 md:flex md:justify-end'>
+      <div className='md:flex md:justify-end'>
           <nav className='text-right'>
             <div className='flex justify-between items-center'>
               <h1 className='text-2xl font-extrabold uppercase p-4 border-b border-cyan-700'>
@@ -204,7 +204,7 @@ export default function App() {
               {/* rendering the cards dynamically based on the players sorted by score */}
               {topPlayers.length > 0 ? (
                 topPlayers.map((player, index) => (
-                  <motion.div key={player._id} className={`bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative lg:w-72 md:w-auto`}
+                  <motion.div key={player._id} className={`bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative xl:w-72 lg:w-auto`}
                   whileHover={{ scale: 1.15, cursor: 'pointer' }}
                   transition={{ duration: 0.5 }}
                   animate={controls}
