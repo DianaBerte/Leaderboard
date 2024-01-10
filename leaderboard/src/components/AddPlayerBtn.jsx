@@ -43,14 +43,26 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
         } else {
             alert("Please enter a valid player name and score.")
         }
-    }
+    };
+
+    const toggleForm = () => {
+      setShowForm(!showForm);
+    };
 
     return(
         <>
         <div className='flex'>
-            <button onClick={() => setShowForm(true)}
+            <button onClick={() => {
+              if (showForm) {
+                toggleForm();
+              } else {
+                toggleForm();
+              }
+            }}
             className='bg-third text-white rounded-full py-3 px-6 pb-3 mt-10 mb-6 uppercase text-xs cursor-pointer tracking-wider font-bold transition-all border-primary md:border-2 animate-pulse hover:text-third hover:text-sm hover:bg-fourth hover:shadow-xl'
-            >Add Player</button>
+            >
+              {showForm ? 'Close' : 'Add Player'}
+              </button>
             </div>
             
             {showForm && (
