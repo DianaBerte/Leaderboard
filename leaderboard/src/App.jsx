@@ -142,7 +142,8 @@ export default function App() {
 
   return (
     <>
-    <div className="bg-cyan-900 min-h-screen min-w-full text-primary">{/* body */}        
+    <section className='grid gap-8'>
+    <div className="bg-cyan-900 min-h-screen w-full h-full text-primary">{/* body */}        
       {showParrot &&
         <div style={{width: "50%"}}>
           <Lottie animationData={parrot} width={200}  />
@@ -263,5 +264,6 @@ export default function App() {
         </div>{/* main content wrapper */}
       </div>
     </div>
+    </section>
     </>
 )}
