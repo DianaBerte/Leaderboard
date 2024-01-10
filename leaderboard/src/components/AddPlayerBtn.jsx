@@ -67,7 +67,7 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
             
             {showForm && (
                     <div className="flex justify-center items-center">
-                    <div className="bg-fourth shadow-cyan-500 text-secondary animate-pulse rounded-lg p-8 shadow-md">
+                    <div className="bg-fourth shadow-cyan-500 text-secondary rounded-lg p-8 shadow-md">
                       <div className="mb-4">
                         <label htmlFor="playerName" className="block font-bold mb-1">Player Name:</label>
                         <input

@@ -150,7 +150,7 @@ export default function App() {
         </div>
       }
 
-      <div className='grid xl:grid-cols-5 md:grid-cols-4'>{/* content wrapper */}
+      <div className='grid xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-1'>{/* content wrapper */}
 
       <div className='md:flex md:justify-end'>
           <nav className='text-right'>
@@ -186,7 +186,7 @@ export default function App() {
           </nav>
         </div>
 
-        <div className='px-16 py-6 md:col-span-2'>{/* main content wrapper */}
+        <div className='px-4 md:px-16 py-6 md:col-span-2'>{/* main content wrapper */}
           <div className='flex justify-center md:justify-end'>
             <button className='rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider border-primary md:border-2 hover:bg-fourth hover:text-cyan-900 transition-all'>Log in</button>
             <button className='rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider border-primary md:border-2 ml-2 hover:bg-fourth hover:text-cyan-900 transition-all'>Sign up</button>
@@ -201,6 +201,7 @@ export default function App() {
             <h4 className='flex items-center justify-center text-4xl font-extrabold mt-8'>Winners</h4>
 
             <div className='mt-8 pb-10 border-cyan-400 grid xl:grid-cols-3 lg:grid-cols-1 gap-20 md:gap-x-80'>
+              {/* 'mt-8 pb-10 border-cyan-400 grid xl:grid-cols-3 lg:grid-cols-1 gap-20 md:gap-x-80' */}
 
               {/* rendering the cards dynamically based on the players sorted by score */}
               {topPlayers.length > 0 ? (
