@@ -143,6 +143,7 @@ export default function App() {
   return (
     <>
     <section className='grid gap-8'>
+      
     <div className="bg-cyan-900 min-h-screen w-full h-full text-primary">{/* body */}        
       {showParrot &&
         <div style={{width: "50%"}}>
