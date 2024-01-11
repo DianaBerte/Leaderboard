@@ -210,7 +210,6 @@ export default function App() {
                   transition={{ duration: 0.5 }}
                   animate={controls}
                   initial="hidden"
-                  style={{ margin: '0px'}}
                   >
                     {player.image && (
                       <img className='w-full h-32 sm:h-48 object-cover rounded' src={player.image} alt='character img'></img>
