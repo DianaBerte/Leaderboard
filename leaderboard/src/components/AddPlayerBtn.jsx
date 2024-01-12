@@ -59,15 +59,16 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
                 toggleForm();
               }
             }}
-            className='bg-third text-white rounded-full py-3 px-6 pb-3 mt-10 mb-6 uppercase text-xs cursor-pointer tracking-wider font-bold transition-all border-primary md:border-2 animate-pulse hover:text-third hover:text-sm hover:bg-fourth hover:shadow-xl'
+            className='bg-third text-white rounded-full py-3 px-6 pb-3 mt-10 mb-6 uppercase text-xs cursor-pointer tracking-wider font-bold transition-all border-primary md:border-2 hover:text-third hover:text-lg hover:bg-fourth hover:shadow-xl'
             >
               {showForm ? 'Close' : 'Add Player'}
               </button>
             </div>
             
             {showForm && (
-                    <div className="flex justify-center items-center">
-                    <div className="bg-fourth shadow-cyan-500 text-secondary rounded-lg p-8 shadow-md">
+                    <div className="flex justify-start items-start">
+                    <div className="bg-fourth shadow-cyan-500 text-secondary rounded-xl p-4 shadow-md">
+
                       <div className="mb-4">
                         <label htmlFor="playerName" className="block font-bold mb-1">Player Name:</label>
                         <input
@@ -76,21 +77,23 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
                           value={playerName}
                           onChange={(e) => setPlayerName(e.target.value)}
                           placeholder="Enter Player Name"
-                          className="w-full p-2 border border-gray-300 rounded"
+                          className="w-full p-1 border border-gray-300 rounded-lg"
                         />
                       </div>
-                      <div className="mb-4">
-                      <label>
-                        Player Score:
+
+                      <div className="mb-4 ">
+                        <label htmlFor="playerScore" className="block font-bold mb-1">Player Score:</label>
                         <input
                         type="number"
+                        id="playerScore"
                         value={playerScore}
                         onChange={(e) => setPlayerScore(e.target.value)}
                         placeholder="Player Score"
-                        ></input>
-                    </label>
+                        className="w-full p-1 border border-gray-300 rounded-lg"
+                        />
                       </div>
-                      <button className="w-full hover:bg-secondary bg-third text-white font-bold py-2 px-4 rounded focus:outline-none focus:bg-blue-600" onClick={handleAdd}>
+
+                      <button className="w-full hover:bg-secondary bg-third text-white font-bold py-2 px-4 rounded-2xl focus:outline-none focus:bg-blue-600" onClick={handleAdd}>
                         Submit
                       </button>
                     </div>

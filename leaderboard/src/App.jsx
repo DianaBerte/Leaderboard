@@ -104,13 +104,13 @@ export default function App() {
         updatedScore = currentPlayer.score + 10;
         setPlayerIdToUpdate(playerID);
 
-        const milestones = [300, 400, 500, 600];
+        const milestones = [300, 400, 500, 600, 700, 800, 900, 1000];
         milestones.forEach(milestone => {
           if (updatedScore >= milestone && currentPlayer.score < milestone ) {
             setShowParrot(true);
             setTimeout(() => {
               setShowParrot(false);
-            }, 1500);
+            }, 2000);
           }
         });
 
@@ -142,17 +142,19 @@ export default function App() {
 
   return (
     <>
+    {showParrot && (
+      <div className="fixed top-0 left-0 w-screen h-screen z-50 flex items-center justify-center bg-black bg-opacity-75">
+        <div style={{ width: "50%" }}>
+          <Lottie animationData={parrot} />
+        </div>
+      </div>
+    )}
+
     <section className='grid gap-8'>
       
-    <div className="bg-cyan-900 min-h-screen w-full h-full text-primary">{/* body */}        
-      {showParrot &&
-        <div style={{width: "50%"}}>
-          <Lottie animationData={parrot} width={200}  />
-        </div>
-      }
+    <div className="bg-cyan-900 min-h-screen w-full h-full text-primary">{/* body */}
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>{/* content wrapper */}
-
       <div className='md:flex md:justify-end'>
           <nav className='text-right'>
             <div className='flex justify-between items-center'>
