@@ -185,7 +185,7 @@ export default function App() {
                 </button>
               </li>
             </ul>                  
-            <AddPlayerBtn handleAddPlayer={handleAddPlayer} />
+            <AddPlayerBtn handleAddPlayer={handleAddPlayer} className='justify-end' />
           </nav>
         </div>
 

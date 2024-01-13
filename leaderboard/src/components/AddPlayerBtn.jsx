@@ -23,8 +23,7 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
         'https://res.cloudinary.com/degg5zebq/image/upload/v1704362646/Game%20characters/Game_character_8_xchyer.png',
         'https://res.cloudinary.com/degg5zebq/image/upload/v1704362646/Game%20characters/Game_character_7_k5iy7p.png',
         'https://res.cloudinary.com/degg5zebq/image/upload/v1704454579/Game%20characters/Game_character_21_meusej.png',
-        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362647/Game%20characters/Game_character_6_jof8b7.png',
-        'https://res.cloudinary.com/degg5zebq/image/upload/v1704362647/Game%20characters/Game_character_6_jof8b7.png',
+        'https://res.cloudinary.com/degg5zebq/image/upload/v1705134700/Game%20characters/Game_character_21_1_purnqi.png',
 ];
 
     const getRandomImage = () => {
@@ -51,7 +50,7 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
 
     return(
         <>
-        <div className='flex'>
+        <div className='flex justify-end'>
             <button onClick={() => {
               if (showForm) {
                 toggleForm();
@@ -93,7 +92,7 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
                         />
                       </div>
 
-                      <button className="w-full hover:bg-secondary bg-third text-white font-bold py-2 px-4 rounded-2xl focus:outline-none focus:bg-blue-600" onClick={handleAdd}>
+                      <button className="w-full hover:bg-secondary bg-third text-white font-bold py-2 px-4 rounded-2xl focus:outline-none focus:bg-third" onClick={handleAdd}>
                         Submit
                       </button>
                     </div>
