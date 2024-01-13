@@ -155,7 +155,7 @@ export default function App() {
     <div className="bg-cyan-900 min-h-screen w-full h-full text-primary">{/* body */}
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>{/* content wrapper */}
-      <div className='md:flex md:justify-end'>
+      <div className='md:flex md:justify-start'>
           <nav className='text-right'>
             <div className='flex justify-between items-center'>
               <h1 className='text-2xl font-extrabold uppercase p-4 border-b border-cyan-700'>
@@ -189,7 +189,7 @@ export default function App() {
           </nav>
         </div>
 
-        <div className='px-4 md:px-16 py-6 md:col-span-3'>{/* main content wrapper */}
+        <div className='px-4 md:px-0 py-6 md:col-span-3'>{/* main content wrapper */}
           <div className='flex justify-center md:justify-end'>
             <button className='rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider border-primary md:border-2 hover:bg-fourth hover:text-cyan-900 transition-all'>Log in</button>
             <button className='rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider border-primary md:border-2 ml-2 hover:bg-fourth hover:text-cyan-900 transition-all'>Sign up</button>
