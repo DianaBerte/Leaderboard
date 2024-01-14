@@ -1,6 +1,3 @@
-//NB: reducer functions can't hold async operations (like fetching).
-//Therefore, async ops go into the action creators.
-
 import { REMOVE_PLAYER, ADD_NEW_PLAYER } from "../actions"
 
 const initialState = {
