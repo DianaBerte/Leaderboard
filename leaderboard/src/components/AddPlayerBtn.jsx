@@ -50,7 +50,7 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
 
     return(
         <>
-        <div className='flex justify-end'>
+        <div className='flex justify-center md:justify-end'>
             <button onClick={() => {
               if (showForm) {
                 toggleForm();
@@ -65,11 +65,11 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
             </div>
             
             {showForm && (
-                    <div className="flex justify-start items-start">
+                    <div className="flex justify-center md:justify-start items-start">
                     <div className="bg-fourth shadow-cyan-500 text-secondary rounded-xl p-4 shadow-md">
 
                       <div className="mb-4">
-                        <label htmlFor="playerName" className="block font-bold mb-1">Player Name:</label>
+                        <label htmlFor="playerName" className="block font-bold mb-1 text-center md:text-end">Player Name:</label>
                         <input
                           type="text"
                           id="playerName"
@@ -81,13 +81,13 @@ const AddPlayerBtn = ({handleAddPlayer}) => {
                       </div>
 
                       <div className="mb-4 ">
-                        <label htmlFor="playerScore" className="block font-bold mb-1">Player Score:</label>
+                        <label htmlFor="playerScore" className="block font-bold mb-1 text-center md:text-end">Player Score:</label>
                         <input
                         type="number"
                         id="playerScore"
                         value={playerScore}
                         onChange={(e) => setPlayerScore(e.target.value)}
-                        placeholder="Player Score"
+                        placeholder="Enter Player Score"
                         className="w-full p-1 border border-gray-300 rounded-lg"
                         />
                       </div>

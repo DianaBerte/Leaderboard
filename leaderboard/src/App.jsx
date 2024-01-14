@@ -154,10 +154,10 @@ export default function App() {
       
     <div className="bg-cyan-900 min-h-screen w-full h-full text-primary">{/* body */}
 
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>{/* content wrapper */}
+      <div className='flex flex-col md:flex-row'>{/* content wrapper */}
       <div className='md:flex md:justify-start'>
-          <nav className='text-right'>
-            <div className='flex justify-between items-center'>
+          <nav className='text-right px-2'>
+            <div className='flex justify-between items-center px-0 md:px-2'>
               <h1 className='text-2xl font-extrabold uppercase p-4 border-b border-cyan-700'>
                 <a className='hover:text-white' href="/">Leaderboard</a>
               </h1>
@@ -167,62 +167,60 @@ export default function App() {
             </div>
             <ul className='mt-6 hidden md:block' id='menu'>
               <li className='py-1 flex justify-end'> 
-                <button className='hover:text-lg hover:text-white px-4 flex justify-end transition-all'>
+                <button className='hover:scale-110 hover:text-white px-4 flex justify-end transition-all'>
                   <span>Home</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 ml-1"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
                 </button>
               </li>
               <li className='py-1 flex justify-end'>
-                <button className='hover:text-lg hover:text-white px-4 flex justify-end transition-all'>
+                <a href='https://dianaberte.com/' className='hover:scale-110 hover:text-white px-4 flex justify-end transition-all'>
                   <span>About</span>
                   <svg xmlns="http://w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ml-1"><path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" /></svg>
-                </button>
+                </a>
               </li>
               <li className='py-1 flex justify-end'>
-                <button className='hover:text-lg hover:text-white px-4 flex justify-end transition-all'>
+                <a href='mailto:dianaberte.go@gmail.com' className='hover:scale-110 hover:text-white px-4 flex justify-end transition-all'>
                   <span>Contact</span>
                   <svg xmlns="http://w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ml-1">  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-                </button>
+                </a>
               </li>
             </ul>                  
             <AddPlayerBtn handleAddPlayer={handleAddPlayer} className='justify-end' />
           </nav>
         </div>
 
-        <div className='px-4 md:px-0 py-6 md:col-span-3'>{/* main content wrapper */}
-          <div className='flex justify-center md:justify-end'>
+        <div className='p-2 md:p-6 grow'>{/* main content wrapper */}
+        
+          <div className='md:flex justify-center hidden md:justify-end'>
             <button className='rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider border-primary md:border-2 hover:bg-fourth hover:text-cyan-900 transition-all'>Log in</button>
             <button className='rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider border-primary md:border-2 ml-2 hover:bg-fourth hover:text-cyan-900 transition-all'>Sign up</button>
           </div>
 
-          <div>{/* header */}
-            <h2 className='text-3xl font-extrabold'>Heroes</h2>
-            <h3 className='text-2xl font-extrabold'>Leaderboard</h3>
-          </div>
+          <div>{/* header */}</div>
 
           <div>{/* cards wrapper */}
-            <h4 className='flex items-center justify-center text-4xl font-extrabold mt-8'>Winners</h4>
+            <h4 className='flex items-center justify-center text-4xl font-extrabold mt-2 md:mt-8'>Winners</h4>
 
-            <div className='mt-8 pb-10 border-cyan-400 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-8'>
+            <div className='mt-8 pb-10 border-cyan-400 grid grid-cols-1 md:grid-cols-3 gap-4'>
 
               {/* rendering the cards dynamically based on the players sorted by score */}
               {topPlayers.length > 0 ? (
                 topPlayers.map((player, index) => (
-                  <motion.div key={player._id} className={`bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative xl:w-72 lg:w-auto mx-auto mb-8`}
+                  <motion.div key={player._id} className={`flex flex-col bg-white rounded overflow-hidden shadow-lg shadow-cyan-500 relative w-64 md:w-40 lg:w-56 xl:w-64 mx-auto mb-8`}
                   whileHover={{ scale: 1.15, cursor: 'pointer' }}
                   transition={{ duration: 0.5 }}
                   animate={controls}
                   initial="hidden"
                   >
                     {player.image && (
-                      <img className='w-full h-32 sm:h-48 object-cover rounded' src={player.image} alt='character img'></img>
+                      <img className='w-full h-48 object-cover rounded' src={player.image} alt='character img'></img>
                         )}
-                          <div className='m-4 text-secondary'>
-                          <div className="flex items-center">
+                          <div className='m-4 mb-0 text-secondary flex-grow'>
+                          <div className='flex items-center justify-between flex-wrap'>
                             {player.name && (
                               <div className='text-lg font-extrabold animate-pulse'>{player.name}</div>
                               )}
-                              <div className='bg-fourth text-secondary font-bold rounded-full w-40 p-2 ml-auto animate-pulse'>
+                              <div className='bg-fourth text-secondary font-bold rounded-full py-2 px-4 animate-pulse'>
                                 {player.score && (
                                   <div className='flex items-center justify-center'>{player.score}pt</div>
                                   )}

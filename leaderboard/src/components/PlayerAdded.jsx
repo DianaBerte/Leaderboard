@@ -45,6 +45,7 @@ const handleScoreUpdate = async (playerID, actionType) => {
           <motion.div key={player._id}
             whileHover={{ scale: 1.1, cursor: 'pointer' }}
             transition={{ duration: 0.5 }}
+            className="w-5/6 lg:w-8/12 mx-auto"
           >
             <div className='mb-6 py-4 px-4 text-white bg-secondary rounded overflow-hidden shadow-lg shadow-cyan-500 flex flex-col md:flex-row items-center justify-between'>
               <div className='flex items-center'>
