@@ -6,7 +6,7 @@ export const INCREASE_PLAYER_SCORE = 'INCREASE_PLAYER_SCORE';
 export const DECREASE_PLAYER_SCORE = 'DECREASE_PLAYER_SCORE';
 export const EDIT_PLAYER_INFO = 'EDIT_PLAYER_INFO';
 
-export const url = "https://diana-be-3cf48a52853d.herokuapp.com/users";
+export const url = process.env.REACT_APP_BE_URL;
 export const auth = process.env.REACT_APP_AUTH;
 
 export const renderPlayersArray = () => {
